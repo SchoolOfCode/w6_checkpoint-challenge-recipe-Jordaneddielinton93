@@ -129,10 +129,19 @@ main{
         text-align: center;
         font-size: 2.5rem;
         color: white;
-        & h3{
-          background-color: $lightgray;
-          border-radius: 40px;
-          cursor: pointer;
+        & a{
+          color: white;
+          &:hover{
+            color: $lightgray;
+          }
+          & h3{
+            background-color: $lightgray;
+            border-radius: 40px;
+            cursor: pointer;
+            &:hover{
+              background-color: white;
+            }
+          }
         }
       }
       & .fa-long-arrow-alt-right{
@@ -180,9 +189,10 @@ main{
       width: 90%;
       height: 90%;
       margin:auto;
+      background-color: rgba(155, 155, 155, 0.561) ;
       border: thin solid $lightgray;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 3fr 1fr 3fr;
+      grid-template-rows: 5fr 1fr 5fr;
       grid-template-areas:
       "box1 box2"
       "box3 box4"
@@ -202,13 +212,27 @@ main{
         grid-area: box3;
         background-color: rgb(59, 48, 27);
         @include gridborder()
-        & #food-input{
-          height:100%;
-          width:70%;
-        }
-        & .fa-search{
-          font-size: 5rem;
-          background-color: $lightgray;
+        &--searchArea{
+          display:flex;
+          width: 100%;
+          height: 100%;
+
+          & input{
+            display: flexbox;
+            width: 90%;
+            height: 100%;
+            background-color: white;
+            font-size: 2rem;
+            text-align: center;
+
+          }
+          & h2{
+            display: flexbox;
+            width: 10%;
+            color: $lightergray;
+            font-size: 3rem;
+            text-align: right;
+          }
         }
       }
       &--bottomleft{

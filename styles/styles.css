@@ -166,10 +166,22 @@ main .starterArea--template--centerScreen {
   color: white;
 }
 
-main .starterArea--template--centerScreen h3 {
+main .starterArea--template--centerScreen a {
+  color: white;
+}
+
+main .starterArea--template--centerScreen a:hover {
+  color: #525252;
+}
+
+main .starterArea--template--centerScreen a h3 {
   background-color: #525252;
   border-radius: 40px;
   cursor: pointer;
+}
+
+main .starterArea--template--centerScreen a h3:hover {
+  background-color: white;
 }
 
 main .starterArea--template .fa-long-arrow-alt-right {
@@ -225,11 +237,12 @@ main .FoodArea--box {
   width: 90%;
   height: 90%;
   margin: auto;
+  background-color: rgba(155, 155, 155, 0.561);
   border: thin solid #525252;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 3fr 1fr 3fr;
-      grid-template-rows: 3fr 1fr 3fr;
+  -ms-grid-rows: 5fr 1fr 5fr;
+      grid-template-rows: 5fr 1fr 5fr;
       grid-template-areas: "box1 box2" "box3 box4" "box5 box4";
 }
 
@@ -262,14 +275,29 @@ main .FoodArea--box--middleleft {
   background-color: rgba(255, 99, 71, 0);
 }
 
-main .FoodArea--box--middleleft #food-input {
+main .FoodArea--box--middleleft--searchArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
   height: 100%;
-  width: 70%;
 }
 
-main .FoodArea--box--middleleft .fa-search {
-  font-size: 5rem;
-  background-color: #525252;
+main .FoodArea--box--middleleft--searchArea input {
+  display: flexbox;
+  width: 90%;
+  height: 100%;
+  background-color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+main .FoodArea--box--middleleft--searchArea h2 {
+  display: flexbox;
+  width: 10%;
+  color: #3D3D3D;
+  font-size: 3rem;
+  text-align: right;
 }
 
 main .FoodArea--box--bottomleft {
