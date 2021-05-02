@@ -1,0 +1,293 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #525252;
+}
+
+.page-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1200px;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #3D3D3D;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.header {
+  display: flexbox;
+  width: 100%;
+  height: 60px;
+}
+
+.header--nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  width: 1200px;
+  height: 60px;
+  top: 0%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: black;
+  border-bottom: #525252 solid thin;
+  color: white;
+}
+
+.header--nav-h1 {
+  display: flexbox;
+  font-size: 2.5rem;
+}
+
+.header--nav--ul {
+  display: flexbox;
+  font-size: 1rem;
+}
+
+.header--nav--ul li {
+  -webkit-text-decoration: underline white;
+          text-decoration: underline white;
+  margin-right: 20px;
+  display: inline;
+}
+
+.reservationArea {
+  height: 60px;
+  width: 1200px;
+  position: fixed;
+  bottom: 0;
+  background-color: black;
+  border-top: #525252 solid thin;
+}
+
+.reservationArea form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.reservationArea form input {
+  display: flexbox;
+  width: 200px;
+  height: 40px;
+  border: #525252 thin dotted;
+  background-color: #a7a7a7;
+}
+
+.reservationArea form input:nth-child(4) {
+  background-color: red;
+  color: white;
+  height: 45px;
+  font-size: 1.5rem;
+}
+
+.reservationArea form select {
+  display: flexbox;
+  width: 200px;
+  height: 40px;
+  font-size: 1.5rem;
+  border: #525252 thin dotted;
+  background-color: #afafaf;
+}
+
+.reservationArea form select:hover {
+  background-color: white;
+}
+
+.reservationArea form select option {
+  height: 20px;
+}
+
+main {
+  background-color: white;
+}
+
+main .starterArea {
+  height: 95vh;
+  width: 100%;
+}
+
+main .starterArea--template {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 80%;
+  width: 100%;
+  background: url(/images/resturant1.jpg) no-repeat;
+  background-size: cover;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .starterArea--template .fa-long-arrow-alt-left {
+  width: 10%;
+  font-size: 4.5rem;
+  color: white;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+main .starterArea--template .fa-long-arrow-alt-left:hover {
+  opacity: 1;
+  font-size: 5rem;
+}
+
+main .starterArea--template--centerScreen {
+  width: 80%;
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+}
+
+main .starterArea--template--centerScreen h3 {
+  background-color: #525252;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+main .starterArea--template .fa-long-arrow-alt-right {
+  width: 10%;
+  font-size: 4.5rem;
+  color: white;
+  cursor: pointer;
+  opacity: 0.5;
+  text-align: right;
+}
+
+main .starterArea--template .fa-long-arrow-alt-right:hover {
+  opacity: 1;
+  font-size: 5rem;
+}
+
+main .starterArea--counter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #3D3D3D;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .starterArea--counter-numbers {
+  height: 90px;
+  width: 300px;
+  border-bottom: thin black solid;
+  background-color: #525252;
+}
+
+main .starterArea--counter-numbers h3 {
+  text-align: center;
+  background-color: white;
+}
+
+main .FoodArea {
+  height: 100vh;
+  width: 100%;
+  background: url(/images/dust.jpg) no-repeat;
+  background-size: cover;
+}
+
+main .FoodArea--box {
+  display: -ms-grid;
+  display: grid;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  border: thin solid #525252;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 3fr 1fr 3fr;
+      grid-template-rows: 3fr 1fr 3fr;
+      grid-template-areas: "box1 box2" "box3 box4" "box5 box4";
+}
+
+main .FoodArea--box--topleft {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: box1;
+  background-color: wheat;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: whitesmoke thick solid;
+  background-color: rgba(255, 99, 71, 0);
+}
+
+main .FoodArea--box--topright {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: box2;
+  background-color: #b98b34;
+  border: whitesmoke thick solid;
+  background-color: rgba(255, 99, 71, 0);
+}
+
+main .FoodArea--box--middleleft {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: box3;
+  background-color: #3b301b;
+  border: whitesmoke thick solid;
+  background-color: rgba(255, 99, 71, 0);
+}
+
+main .FoodArea--box--middleleft #food-input {
+  height: 100%;
+  width: 70%;
+}
+
+main .FoodArea--box--middleleft .fa-search {
+  font-size: 5rem;
+  background-color: #525252;
+}
+
+main .FoodArea--box--bottomleft {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: box4;
+  background-color: #c2ad85;
+  border: whitesmoke thick solid;
+  background-color: rgba(255, 99, 71, 0);
+}
+
+main .FoodArea--box--bottomright {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: box5;
+  background-color: #241905;
+  border: whitesmoke thick solid;
+  background-color: rgba(255, 99, 71, 0);
+}
+/*# sourceMappingURL=styles.css.map */

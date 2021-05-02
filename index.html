@@ -1,23 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fetch</title>
-  </head>
-  <body>
-    <section id="recipe-section">
-      <h2 class="section-heading">Welcome to the Recipe Finder!</h2>
-      <input
-        aria-label="food-input"
-        id="food-input"
-        onchange="handleFoodChange()"
-      />
-      <button id="recipe-button" onclick="handleRecipeClick()">
-        Give me a recipe!
-      </button>
-      <a id="recipe-label"></a>
-    </section>
-    <script src="./main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/styles.css">
+  <title>Fetch Foods</title>
+</head>
+<body>
+  <div class="page-area">
+   <header class="header">
+     <nav class="header--nav" >
+       <h1 class="header--nav-h1" >
+         FETCH FOODS
+       </h1>
+       <ul class="header--nav--ul">
+         <li>FOODS</li>
+         <li>CONTACT</li>
+         <li>PORTFOLIO</li>
+       </ul>
+     </nav>
+   </header>
+
+   <div class="reservationArea">
+
+     <form action="" method="get">
+      <select name="location" id="">
+        <option value="">location</option>
+        <option value="">Wolverhampton</option>
+        <option value="">Birmingham</option>
+        <option value="">Manchester</option>
+        <option value="">Blackpool</option>
+      </select>
+
+      <input type="date" name="" id="" min="2021-05-02">
+       
+      <select name="location" id="" >
+        <option value="">PartySize</option>
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+        <option value="">4</option>
+        <option value="">5</option>
+      </select>
+      <input type="submit" value="Fetch Food">
+     </form>
+   </div>
+
+   <main>
+     <section class="starterArea">
+       <div class="starterArea--template">
+          <i class="fas fa-long-arrow-alt-left"></i>
+          <div class="starterArea--template--centerScreen">
+
+              <h2>Flavourfull Foods for you </h2>
+              <h3>Fetch Food recipe's?</h3>
+
+          </div>
+          <i class="fas fa-long-arrow-alt-right"></i>
+       </div>
+       <div class="starterArea--counter">
+         <div class="starterArea--counter-numbers">
+           <h3>Countdown to new items</h3>
+           <h3></h3>
+         </div>
+         <div class="starterArea--counter-numbers">
+           <h3></h3>
+         </div>
+       </div>
+     </section>
+     <section class="FoodArea" id="FoodArea">
+       <div class="FoodArea--box">
+        <div class="FoodArea--box--topleft"></div>
+        <div class="FoodArea--box--topright"></div>
+        <div class="FoodArea--box--middleleft">
+          <input aria-label="food-input" id="food-input" onchange="handleFoodChange()"/>
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="FoodArea--box--bottomleft"></div>
+        <div class="FoodArea--box--bottomright"></div>
+      </div>
+     </section>
+   </main>
+   <footer>
+
+   </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+  <!-- <section id="recipe-section">
+    <h2 class="section-heading">Welcome to the Recipe Finder!</h2>
+    <input
+      aria-label="food-input"
+      id="food-input"
+      onchange="handleFoodChange()"
+    />
+    <button id="recipe-button" onclick="handleRecipeClick()">
+      Give me a recipe!
+    </button>
+    <a id="recipe-label"></a>
+  </section> -->
+  <script src="./main.js"></script>
+  
+</body>
 </html>

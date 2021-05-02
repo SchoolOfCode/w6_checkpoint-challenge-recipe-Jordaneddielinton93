@@ -1,0 +1,227 @@
+$darkgray : black;
+$lightergray :#3D3D3D;
+$lightgray:#525252;
+$page-width:1200px;
+
+@mixin gridborder {
+  border: whitesmoke thick solid;
+  background-color: rgba(255, 99, 71, 0);
+}
+*{
+ padding: 0%;
+ margin: 0%;
+ text-decoration: none;
+ font-family: 'Montserrat', sans-serif;
+}
+body{
+ background-color: $lightgray;
+}
+.page-area{
+  display: flex;
+  width: $page-width;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $lightergray;
+  flex-direction: column;
+}
+.header{
+  display: flexbox;
+  width: 100%;
+  height: 60px;
+  &--nav{
+    display: flex;
+    position: fixed;
+    width: $page-width;
+    height: 60px;
+    top: 0%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $darkgray;
+    border-bottom:$lightgray solid thin ;
+    color: white;
+    &-h1{
+      display: flexbox;
+      font-size: 2.5rem;
+    }
+    &--ul{
+      display: flexbox;
+      font-size: 1rem;
+
+      & li{
+        text-decoration: underline white ;
+        margin-right:20px ;
+        display: inline;
+      }
+    }
+  }
+}
+.reservationArea{
+  height: 60px;
+  width: $page-width ;
+  position: fixed;
+  bottom: 0;
+  background-color: $darkgray;
+  border-top: $lightgray solid thin;
+  & form{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    & input{
+      display: flexbox;
+      width: 200px;
+      height: 40px;
+      border: $lightgray thin dotted;
+      background-color:rgb(167, 167, 167);
+      &:nth-child(4){
+        background-color: red;
+        color: white;
+        height: 45px;
+        font-size: 1.5rem;
+      }
+    }
+    & select{
+      display: flexbox;
+      width: 200px;
+      height: 40px;
+      font-size: 1.5rem;
+      border: $lightgray thin dotted;
+      background-color: rgb(175, 175, 175);
+      &:hover{
+        background-color: white;
+      }
+      & option{
+        height: 20px;
+      }
+    }
+  }
+}
+
+main{
+  background-color: white;
+  .starterArea{
+    height: 95vh;
+    width: 100%;
+    &--template{
+      display: flex;
+      height: 80%;
+      width: 100%;
+      background:url(/images/resturant1.jpg) no-repeat;
+      background-size: cover;
+      justify-content: center;
+      align-items: center;
+      & .fa-long-arrow-alt-left{
+        width: 10%;
+        font-size: 4.5rem;
+        color: white;
+        cursor: pointer;
+        opacity: 0.5;
+        &:hover{
+          opacity: 1;
+          font-size: 5rem;
+        }
+      }
+      &--centerScreen{
+        width: 80%;
+        text-align: center;
+        font-size: 2.5rem;
+        color: white;
+        & h3{
+          background-color: $lightgray;
+          border-radius: 40px;
+          cursor: pointer;
+        }
+      }
+      & .fa-long-arrow-alt-right{
+        width: 10%;
+        font-size: 4.5rem;
+        color: white;
+        cursor: pointer;
+        opacity: 0.5;
+        text-align: right;
+        
+        &:hover{
+          opacity: 1;
+          font-size: 5rem;
+        }
+
+      }
+    }
+    &--counter{
+      display: flex;
+
+      background-color: $lightergray;
+
+      align-items: center;
+      flex-direction: column;
+      &-numbers{
+        height: 90px;
+        width: 300px;
+        border-bottom: thin $darkgray solid;
+        background-color: $lightgray;
+        & h3{
+          text-align: center;
+          background-color: white;
+        }
+      }
+    }
+    
+  }
+  .FoodArea{
+    height: 100vh;
+    width: 100%;
+    background : url(/images/dust.jpg)no-repeat;
+    background-size: cover;
+    &--box{
+      display: grid;
+      width: 90%;
+      height: 90%;
+      margin:auto;
+      border: thin solid $lightgray;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 3fr 1fr 3fr;
+      grid-template-areas:
+      "box1 box2"
+      "box3 box4"
+      "box5 box4";
+      &--topleft{
+        grid-area: box1;
+        background-color: wheat;
+        object-fit: cover;
+        @include gridborder()
+      }
+      &--topright{
+        grid-area: box2;
+        background-color: rgb(185, 139, 52);
+        @include gridborder()
+      }
+      &--middleleft{
+        grid-area: box3;
+        background-color: rgb(59, 48, 27);
+        @include gridborder()
+        & #food-input{
+          height:100%;
+          width:70%;
+        }
+        & .fa-search{
+          font-size: 5rem;
+          background-color: $lightgray;
+        }
+      }
+      &--bottomleft{
+        grid-area: box4;
+        background-color: rgb(194, 173, 133);
+        @include gridborder()
+      }
+      &--bottomright{
+        grid-area: box5;
+        background-color: rgb(36, 25, 5);
+        @include gridborder()
+      }
+      
+    }
+  }
+}
