@@ -15,7 +15,7 @@
    <header class="header">
      <nav class="header--nav" >
        <h1 class="header--nav-h1" >
-         FETCH FOODS
+         FETCH FOODS <i class="fas fa-utensils"></i>
        </h1>
        <ul class="header--nav--ul">
          <li>FOODS</li>
@@ -28,7 +28,7 @@
    <div class="reservationArea">
 
      <form action="" method="get">
-      <select name="location" id="">
+      <select name="location" >
         <option value="">location</option>
         <option value="">Wolverhampton</option>
         <option value="">Birmingham</option>
@@ -38,7 +38,7 @@
 
       <input type="date" name="" id="" min="2021-05-02">
        
-      <select name="location" id="" >
+      <select name="location"  >
         <option value="">PartySize</option>
         <option value="">1</option>
         <option value="">2</option>
@@ -74,16 +74,29 @@
      </section>
      <section class="FoodArea" id="FoodArea">
        <div class="FoodArea--box">
-        <div class="FoodArea--box--topleft"></div>
-        <div class="FoodArea--box--topright"></div>
+        <div class="FoodArea--box--topleft">
+          <img src="" alt="" srcset="" id="apiImage">
+        </div>
+        <div class="FoodArea--box--topright">
+          <h1 class="label">FOOD:</h1>
+          <article >
+
+          </article>
+        </div>
         <div class="FoodArea--box--middleleft">
           <div class="FoodArea--box--middleleft--searchArea">
-            <input aria-label="food-input" id="food-input" onchange="handleFoodChange()"/>
-            <h2><i class="fas fa-search"></i></h2>
+            <input aria-label="food-input" id="food-input" onchange="handleFoodChange()" placeholder="type food e:g chicken salad kale"/>
+            <h2><i class="fas fa-search" id="recipe-button" onclick="handleRecipeClick()"></i></h2>
           </div>
         </div>
-        <div class="FoodArea--box--bottomleft"></div>
-        <div class="FoodArea--box--bottomright"></div>
+        <div class="FoodArea--box--bottomleft">
+        </div>
+        <div class="FoodArea--box--bottomright">
+          <h1>Ingredients</h1>
+          <article class="ingrediants">
+
+          </article>
+        </div>
       </div>
      </section>
    </main>
