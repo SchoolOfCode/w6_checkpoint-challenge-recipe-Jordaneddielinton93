@@ -108,6 +108,10 @@ body {
   background-color: #a7a7a7;
 }
 
+.reservationArea form input:hover {
+  background-color: white;
+}
+
 .reservationArea form input:nth-child(4) {
   background-color: red;
   color: white;
@@ -116,7 +120,8 @@ body {
 }
 
 .reservationArea form input:nth-child(4):hover {
-  background-color: darkred;
+  background-color: #ff4848;
+  font-size: 1.6rem;
 }
 
 .reservationArea form select {
@@ -138,6 +143,7 @@ body {
 
 main {
   background-color: white;
+  height: 100%;
 }
 
 main .starterArea {
@@ -149,7 +155,7 @@ main .starterArea--template {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 80%;
+  height: 100%;
   width: 100%;
   background-image: url(/images/resturant1.jpg);
   background-repeat: no-repeat;
@@ -214,11 +220,12 @@ main .starterArea--template .fa-long-arrow-alt-right:hover {
   font-size: 5rem;
 }
 
-main .starterArea--counter {
+main .counter {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   height: 180px;
+  width: 100%;
   background-color: #3D3D3D;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -229,15 +236,15 @@ main .starterArea--counter {
           flex-direction: column;
 }
 
-main .starterArea--counter-numbers {
+main .counter-numbers {
   display: flexbox;
-  height: 90px;
+  height: 50%;
   width: 300px;
   border-bottom: thin black solid;
   background-color: #525252;
 }
 
-main .starterArea--counter-numbers h3 {
+main .counter-numbers h3 {
   text-align: center;
   background-color: white;
 }
@@ -247,6 +254,7 @@ main .FoodArea {
   width: 100%;
   background: url(/images/dust.jpg) no-repeat;
   background-size: cover;
+  font-size: 1.3rem;
 }
 
 main .FoodArea--box {
@@ -271,13 +279,11 @@ main .FoodArea--box--topleft {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: box1;
-  background-color: wheat;
   border: whitesmoke thin solid;
-  background-color: rgba(255, 99, 71, 0);
+  background-color: rgba(255, 255, 255, 0.5);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: white;
 }
 
 main .FoodArea--box--topleft #apiImage {
@@ -298,23 +304,45 @@ main .FoodArea--box--topright {
   grid-area: box2;
   background-color: #b98b34;
   border: whitesmoke thin solid;
-  background-color: rgba(255, 99, 71, 0);
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-main .FoodArea--box--topright h1 {
+main .FoodArea--box--topright--label {
   text-align: center;
   width: 100%;
   height: 10%;
   background-color: white;
 }
 
+main .FoodArea--box--topright--table {
+  width: 100%;
+  height: 90%;
+  border: whitesmoke thin solid;
+  background-color: rgba(255, 255, 255, 0.5);
+  overflow: auto;
+}
+
+main .FoodArea--box--topright--table tr td:nth-child(1) {
+  border: thin solid red;
+  width: 30%;
+}
+
+main .FoodArea--box--topright--table tr td:nth-child(2) {
+  border: thin solid red;
+  width: 70%;
+  text-align: center;
+}
+
 main .FoodArea--box--middleleft {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: box3;
-  background-color: #3b301b;
   border: whitesmoke thin solid;
-  background-color: rgba(255, 99, 71, 0);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 main .FoodArea--box--middleleft--searchArea {
@@ -332,8 +360,10 @@ main .FoodArea--box--middleleft--searchArea input {
   display: flexbox;
   width: 90%;
   height: 80%;
+  color: red;
   background-color: white;
-  font-size: 1rem;
+  font-weight: 900;
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -341,6 +371,7 @@ main .FoodArea--box--middleleft--searchArea h2 {
   display: flexbox;
   width: 10%;
   color: #3D3D3D;
+  color: red;
   font-size: 3rem;
   text-align: right;
 }
@@ -349,26 +380,63 @@ main .FoodArea--box--middleleft--searchArea h2 i {
   color: red;
 }
 
+main .FoodArea--box--middleleft--searchArea h2 i:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
 main .FoodArea--box--bottomleft {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: box5;
-  background-color: #c2ad85;
+  width: 100%;
+  height: 100%;
   border: whitesmoke thin solid;
-  background-color: rgba(255, 99, 71, 0);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+main .FoodArea--box--bottomleft-saveRecipe {
+  text-align: center;
+  background-color: white;
+  overflow: auto;
+}
+
+main .FoodArea--box--bottomleft-table {
+  width: 100%;
+  height: 90%;
+  border: whitesmoke thin solid;
+  background-color: rgba(255, 255, 255, 0.5);
+  overflow: auto;
+}
+
+main .FoodArea--box--bottomleft-table tr td:nth-child(1) {
+  border: thin solid red;
+  width: 40%;
+}
+
+main .FoodArea--box--bottomleft-table tr td:nth-child(2) {
+  border: thin solid red;
+  width: 60%;
+  text-align: center;
+  overflow: hidden;
 }
 
 main .FoodArea--box--bottomright {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   -ms-grid-column: 2;
   grid-area: box4;
-  background-color: #241905;
   border: whitesmoke thin solid;
-  background-color: rgba(255, 99, 71, 0);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 main .FoodArea--box--bottomright h1 {
@@ -376,5 +444,21 @@ main .FoodArea--box--bottomright h1 {
   width: 100%;
   height: 10%;
   background-color: white;
+}
+
+main .FoodArea--box--bottomright-ingrediants {
+  text-align: center;
+  height: 45%;
+  width: 100%;
+  background-color: rgba(175, 175, 175, 0.6);
+  overflow: auto;
+}
+
+main .FoodArea--box--bottomright-ingrediantslist {
+  text-align: left;
+  height: 45%;
+  width: 100%;
+  background-color: rgba(175, 175, 175, 0.6);
+  overflow: auto;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/styles.css">
+  <link rel="shortcut icon" href="images/dishfood.png" />
   <title>Fetch Foods</title>
 </head>
 <body>
@@ -62,26 +63,41 @@
           </div>
           <i class="fas fa-long-arrow-alt-right"></i>
        </div>
-       <div class="starterArea--counter">
-         <div class="starterArea--counter-numbers">
-           <h3>Countdown to new items</h3>
-           <h3></h3>
-         </div>
-         <div class="starterArea--counter-numbers">
-           <h3></h3>
-         </div>
-       </div>
      </section>
+     <div class="counter">
+      <div class="counter-numbers">
+        <h3>Countdown to new items</h3>
+        <h3 class=""></h3>
+      </div>
+      <div class="counter-numbers">
+        <h3></h3>
+      </div>
+    </div>
      <section class="FoodArea" id="FoodArea">
        <div class="FoodArea--box">
         <div class="FoodArea--box--topleft">
           <img src="" alt="" srcset="" id="apiImage">
         </div>
         <div class="FoodArea--box--topright">
-          <h1 class="label">FOOD:</h1>
-          <article >
-
-          </article>
+          <h1 class="FoodArea--box--topright--label">FOOD:</h1>
+          <table class="FoodArea--box--topright--table">
+            <tr>
+              <td>Dish-Type:</td>
+              <td class="dishtype"></td>
+            </tr>
+            <tr>
+              <td>CuisineType:</td>
+              <td class="cuisinetype"></td>
+            </tr>
+            <tr>
+              <td>Calories:</td>
+              <td class="calories"></td>
+            </tr>
+            <tr>
+              <td>Total-Weight:</td>
+              <td class="totalweight"></td>
+            </tr>
+          </table>
         </div>
         <div class="FoodArea--box--middleleft">
           <div class="FoodArea--box--middleleft--searchArea">
@@ -90,10 +106,19 @@
           </div>
         </div>
         <div class="FoodArea--box--bottomleft">
+          <h1 class="FoodArea--box--bottomleft-saveRecipe">Save Recipe</h1>
+
+          <table class="FoodArea--box--bottomleft-table">
+
+          </table>
+          
         </div>
         <div class="FoodArea--box--bottomright">
           <h1>Ingredients</h1>
-          <article class="ingrediants">
+          <article class="FoodArea--box--bottomright-ingrediants">
+
+          </article>
+          <article class="FoodArea--box--bottomright-ingrediantslist">
 
           </article>
         </div>

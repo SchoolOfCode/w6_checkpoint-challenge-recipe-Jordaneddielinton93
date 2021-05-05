@@ -5,7 +5,7 @@ $page-width:1200px;
 
 @mixin gridborder {
   border: whitesmoke thin solid;
-  background-color: rgba(255, 99, 71, 0);
+  background-color: rgba(255, 255, 255, 0.5)
 }
 *{
  padding: 0%;
@@ -83,13 +83,17 @@ body{
       height: 40px;
       border: $lightgray thin dotted;
       background-color:rgb(167, 167, 167);
+      &:hover{
+        background-color: white;
+      }
       &:nth-child(4){
         background-color: red;
         color: white;
         height: 45px;
         font-size: 1.5rem;
         &:hover{
-          background-color: darkred;
+          background-color: rgb(255, 72, 72);
+          font-size: 1.6rem;
         }
       }
     }
@@ -112,12 +116,13 @@ body{
 
 main{
   background-color: white;
+  height: 100%;
   .starterArea{
     height: 95vh;
     width: 100%;
     &--template{
       display: flex;
-      height: 80%;
+      height: 100%;
       width: 100%;
       background-image:url(/images/resturant1.jpg);
       background-repeat: no-repeat;
@@ -170,32 +175,32 @@ main{
 
       }
     }
-    &--counter{
-      display: flex;
-      height: 180px;
-      background-color: $lightergray;
-
-      align-items: center;
-      flex-direction: column;
-      &-numbers{
-        display: flexbox;
-        height: 90px;
-        width: 300px;
-        border-bottom: thin $darkgray solid;
-        background-color: $lightgray;
-        & h3{
-          text-align: center;
-          background-color: white;
-        }
+  }
+  .counter{
+    display: flex;
+    height: 180px;
+    width: 100%;
+    background-color: $lightergray;
+    align-items: center;
+    flex-direction: column;
+    &-numbers{
+      display: flexbox;
+      height: 50%;
+      width: 300px;
+      border-bottom: thin $darkgray solid;
+      background-color: $lightgray;
+      & h3{
+        text-align: center;
+        background-color: white;
       }
     }
-    
   }
   .FoodArea{
     height: 100vh;
     width: 100%;
     background : url(/images/dust.jpg)no-repeat;
     background-size: cover;
+    font-size: 1.3rem;
     &--box{
       display: grid;
       width: 90%;
@@ -212,10 +217,8 @@ main{
       &--topleft{
         display: flex;
         grid-area: box1;
-        background-color: wheat;
         @include gridborder();
         justify-content: center;
-        background-color: white;
         & #apiImage{
           border-left: $darkgray thick solid;
           border-right: $darkgray thick solid;
@@ -229,16 +232,31 @@ main{
         grid-area: box2;
         background-color: rgb(185, 139, 52);
         @include gridborder();
-        & h1{
+        flex-direction: column;
+        &--label{
           text-align:center;
           width: 100%;
           height: 10%;
           background-color: white;
         }
+        &--table{
+          width: 100%;
+          height: 90%;
+          @include gridborder();
+          overflow: auto;
+          & tr td:nth-child(1){
+            border: thin solid red;
+            width: 30%;
+          }
+          & tr td:nth-child(2){
+            border: thin solid red;
+            width: 70%;
+            text-align: center;
+          }
+        }
       }
       &--middleleft{
         grid-area: box3;
-        background-color: rgb(59, 48, 27);
         @include gridborder();
         &--searchArea{
           display:flex;
@@ -250,8 +268,10 @@ main{
             display: flexbox;
             width: 90%;
             height: 80%;
+            color: red;
             background-color: white;
-            font-size: 1rem;
+            font-weight: 900;
+            font-size: 1.5rem;
             text-align: center;
 
           }
@@ -259,29 +279,72 @@ main{
             display: flexbox;
             width: 10%;
             color: $lightergray;
+            color: red;
             font-size: 3rem;
             text-align: right;
             & i{
               color: red;
+              &:hover{
+                transform: rotate(360deg);
+                transition: 2s;
+              }
             }
           }
         }
       }
       &--bottomleft{
         grid-area: box5;
-        background-color: rgb(194, 173, 133);
-        @include gridborder()
+        width: 100%;
+        height: 100%;
+        @include gridborder();
+        &-saveRecipe{
+          text-align: center;
+          background-color: white;
+          overflow: auto;
+        }
+        &-table{
+          width: 100%;
+          height: 90%;
+          @include gridborder();
+          overflow: auto;
+
+          & tr td:nth-child(1){
+            border: thin solid red;
+            width: 40%;
+          }
+          & tr td:nth-child(2){
+            border: thin solid red;
+            width: 60%;
+            text-align: center;
+            overflow: hidden;
+          }
+        }
       }
       &--bottomright{
         display: flex;
+        flex-direction: column;
         grid-area: box4;
-        background-color: rgb(36, 25, 5);
-        @include gridborder()
+        @include gridborder();
+        
         & h1{
           text-align:center;
           width: 100%;
           height: 10%;
           background-color: white;
+        }
+        &-ingrediants{
+          text-align: center;
+          height: 45%;
+          width: 100%;
+          background-color: rgba(175, 175, 175,0.6);
+          overflow: auto;
+        }
+        &-ingrediantslist{
+          text-align: left;
+          height: 45%;
+          width: 100%;
+          background-color: rgba(175, 175, 175,0.6);
+          overflow: auto;
         }
       }
       
