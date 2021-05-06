@@ -30,6 +30,7 @@ body{
   width: 100%;
   height: 60px;
   &--nav{
+    z-index: 5;
     display: flex;
     position: fixed;
     width: $page-width;
@@ -70,6 +71,7 @@ body{
   bottom: 0;
   background-color: $darkgray;
   border-top: $lightgray solid thin;
+  z-index: 5;
   & form{
     display: flex;
     width: 100%;
@@ -369,9 +371,63 @@ main{
       
     }
   }
-  .selectionArea{
+  @mixin boxNumbStyles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 500px;
-    background-color: pink;
+    height: 100%;
+    text-align: center;
+    background-color: white;
+    background-size: cover;
+    color: white;
+  }
+  .selectionArea{
+    display: flexbox;
+    width: 100%;
+    height: 100vh;
+    background-color: $darkgray;
+    &--grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 100%;
+      height: 90%;
+      & .boxs{
+          display: flexbox;
+          width: 100%;
+          height: 100%;
+          background:url(/images/grid-paper.png) no-repeat;
+          background-size: cover;
+          transition: 0.8s;
+          color: black;
+          font-size: 3rem;
+          align-self:center ;
+          background-color: rgba(175, 175, 175,0.6);
+          &:hover{
+            opacity: 0;
+            transition: 0.8s;
+          }
+        }
+      &--box1{
+        @include boxNumbStyles();
+      }
+      &--box2{
+        @include boxNumbStyles();
+      }
+      &--box3{
+        @include boxNumbStyles();
+      }
+      &--box4{
+        @include boxNumbStyles();
+      }
+      &--box5{
+        @include boxNumbStyles();
+      }
+      &--box6{
+        @include boxNumbStyles();
+      }
+      
+    }
   }
 }

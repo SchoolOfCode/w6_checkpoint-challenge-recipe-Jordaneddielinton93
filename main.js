@@ -104,10 +104,10 @@ function handleFoodChange() {
 }
 // 4 get recipe searched for and fill in the info on screen (e:g images, ingrediants)
 async function fetchRecipe(food) {
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
+  let response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
   let data = await response.json()
   let randNum = Math.floor(Math.random()*data.hits.length)
-  console.log(data)
+  console.log(data.hits[2].recipe.image)
   let randRecipe = data.hits[randNum].recipe
   getImagesURL(randRecipe.image)
   getfoodLabel(randRecipe.label)
@@ -163,5 +163,56 @@ function getsavedRecipes(label,url){
   createTR.append(createTD1,createTD2)
   savedRecipe.append(createTR)
 }
+
+async function returnImages(food,callback){
+  let response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
+  data = await response.json()
+  callback(data.hits) 
+}
+
+// 1. grab the object from the fetch
+// 2. call the object and use the data to change background of each box
+// 3. must be a call back since we are waiting for the fetch and u need practice
+function getBoxNumberIMG(numb){
+  let getbox = document.querySelector(`.selectionArea--grid--box${numb}`)
+  return getbox.style
+}
+function getInnerPTag(numb){
+  let getP = document.querySelector(`.selectionArea--grid--box${numb} p`)
+  return getP
+}
+  
+function getSelectionImages(){
+  returnImages("pizza",(data)=>{
+    let backgroundImage = `URL(${data[2].recipe.image})`
+    getBoxNumberIMG(1).backgroundImage = backgroundImage
+    getInnerPTag(1).innerText = data[2].recipe.label
+
+  })
+  returnImages("pasta",(data)=>{
+    let backgroundImage = `URL(${data[2].recipe.image})`
+    getBoxNumberIMG(2).backgroundImage = backgroundImage
+  })
+  returnImages("burger",(data)=>{
+    let backgroundImage = `URL(${data[2].recipe.image})`
+    getBoxNumberIMG(3).backgroundImage = backgroundImage
+  })
+  returnImages("soup",(data)=>{
+    let backgroundImage = `URL(${data[2].recipe.image})`
+    getBoxNumberIMG(4).backgroundImage = backgroundImage
+  })
+  returnImages("salad",(data)=>{
+    let backgroundImage = `URL(${data[4].recipe.image})`
+    getBoxNumberIMG(5).backgroundImage = backgroundImage
+  })
+  returnImages("bread",(data)=>{
+    let backgroundImage = `URL(${data[2].recipe.image})`
+    getBoxNumberIMG(6).backgroundImage = backgroundImage
+  })
+
+}
+getSelectionImages()
+
+
 
 
