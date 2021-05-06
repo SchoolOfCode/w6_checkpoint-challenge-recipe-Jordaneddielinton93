@@ -38,6 +38,7 @@ body {
   position: fixed;
   width: 1200px;
   height: 60px;
+  width: 1200px;
   top: 0%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
@@ -634,5 +635,67 @@ main .selectionArea--grid--box6 {
   background-color: white;
   background-size: cover;
   color: white;
+}
+
+@media only screen and (max-width: 1200px) {
+  .page-area {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .header--nav {
+    width: 100vw;
+  }
+  .header--nav-h1 {
+    font-size: 1rem;
+  }
+  .header--nav--ul {
+    font-size: 0.5rem;
+  }
+  .reservationArea {
+    width: 100vw;
+  }
+  main .FoodArea--box {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "box1" "box3" "box2"  "box4" "box5";
+  }
+  main .FoodArea--box--topleft {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: box1;
+  }
+  main .FoodArea--box--topright {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: box2;
+  }
+  main .FoodArea--box--middleleft {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: box3;
+  }
+  main .FoodArea--box--bottomleft {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: box4;
+  }
+  main .FoodArea--box--bottomright {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+    grid-area: box5;
+  }
+  main .selectionArea--grid {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

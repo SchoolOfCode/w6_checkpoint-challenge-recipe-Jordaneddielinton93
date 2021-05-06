@@ -35,6 +35,7 @@ body{
     position: fixed;
     width: $page-width;
     height: 60px;
+    width: $page-width;
     top: 0%;
     justify-content: space-around;
     align-items: center;
@@ -431,4 +432,63 @@ main{
       
     }
   }
+}
+
+@media only screen and (max-width: 1200px) {
+  .page-area{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .header{
+    &--nav{
+      width: 100vw;
+      &-h1{
+        font-size: 1rem;
+      }
+      &--ul{
+        font-size: 0.5rem;
+      }
+    }
+  }
+  .reservationArea{
+    width: 100vw;
+  }
+  main{
+    .FoodArea--box{
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-areas: 
+      "box1"
+      "box3"
+      "box2" 
+      "box4"
+      "box5";
+      &--topleft{
+        grid-area:box1 ;
+      }
+      &--topright{
+        grid-area:box2 ;
+      }
+      &--middleleft{
+        grid-area:box3 ;
+      }
+      &--bottomleft{
+        grid-area:box4 ;
+      }
+      &--bottomright{
+        grid-area:box5 ;
+      }
+    }
+    
+    .selectionArea{
+      &--grid{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+      }
+    }
+  }
+
 }
