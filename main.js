@@ -164,7 +164,7 @@ function getsavedRecipes(label,url){
   savedRecipe.append(createTR)
 }
 
-async function returnImages(food,callback){
+async function returnFoodAPI(food,callback){
   let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
   data = await response.json()
   callback(data.hits) 
@@ -183,31 +183,35 @@ function getInnerPTag(numb){
 }
   
 function getSelectionImages(){
-  returnImages("pizza",(data)=>{
+  returnFoodAPI("pizza",(data)=>{
     let backgroundImage = `URL(${data[2].recipe.image})`
     getBoxNumberIMG(1).backgroundImage = backgroundImage
     getInnerPTag(1).innerText = data[2].recipe.label
-
   })
-  returnImages("pasta",(data)=>{
+  returnFoodAPI("pasta",(data)=>{
     let backgroundImage = `URL(${data[2].recipe.image})`
     getBoxNumberIMG(2).backgroundImage = backgroundImage
+    getInnerPTag(2).innerText = data[2].recipe.label
   })
-  returnImages("burger",(data)=>{
+  returnFoodAPI("burger",(data)=>{
     let backgroundImage = `URL(${data[2].recipe.image})`
     getBoxNumberIMG(3).backgroundImage = backgroundImage
+    getInnerPTag(3).innerText = data[2].recipe.label
   })
-  returnImages("soup",(data)=>{
+  returnFoodAPI("soup",(data)=>{
     let backgroundImage = `URL(${data[2].recipe.image})`
     getBoxNumberIMG(4).backgroundImage = backgroundImage
+    getInnerPTag(4).innerText = data[2].recipe.label
   })
-  returnImages("salad",(data)=>{
+  returnFoodAPI("salad",(data)=>{
     let backgroundImage = `URL(${data[4].recipe.image})`
     getBoxNumberIMG(5).backgroundImage = backgroundImage
+    getInnerPTag(5).innerText = data[2].recipe.label
   })
-  returnImages("bread",(data)=>{
+  returnFoodAPI("bread",(data)=>{
     let backgroundImage = `URL(${data[2].recipe.image})`
     getBoxNumberIMG(6).backgroundImage = backgroundImage
+    getInnerPTag(6).innerText = data[2].recipe.label
   })
 
 }
