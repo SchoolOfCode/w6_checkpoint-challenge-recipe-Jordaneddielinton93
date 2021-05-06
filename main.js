@@ -104,7 +104,7 @@ function handleFoodChange() {
 }
 // 4 get recipe searched for and fill in the info on screen (e:g images, ingrediants)
 async function fetchRecipe(food) {
-  let response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
   let data = await response.json()
   let randNum = Math.floor(Math.random()*data.hits.length)
   console.log(data.hits[2].recipe.image)
@@ -165,7 +165,7 @@ function getsavedRecipes(label,url){
 }
 
 async function returnImages(food,callback){
-  let response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
   data = await response.json()
   callback(data.hits) 
 }
