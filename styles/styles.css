@@ -227,26 +227,51 @@ main .counter {
   height: 180px;
   width: 100%;
   background-color: #3D3D3D;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-main .counter-numbers {
+main .counter--left {
+  background: url(/images/leftburger.jpg) no-repeat;
+  background-size: cover;
+  width: 25%;
+  height: 100%;
+}
+
+main .counter--numbers {
   display: flexbox;
-  height: 50%;
-  width: 300px;
+  height: 100%;
+  width: 50%;
   border-bottom: thin black solid;
   background-color: #525252;
 }
 
-main .counter-numbers h3 {
+main .counter--numbers h3 {
   text-align: center;
   background-color: white;
+}
+
+main .counter--numbers--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 70%;
+  font-size: 2rem;
+}
+
+main .counter--right {
+  background: url(/images/rightburger.jpg) no-repeat;
+  background-size: cover;
+  width: 25%;
+  height: 100%;
 }
 
 main .FoodArea {
@@ -302,7 +327,6 @@ main .FoodArea--box--topright {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: box2;
-  background-color: #b98b34;
   border: whitesmoke thin solid;
   background-color: rgba(255, 255, 255, 0.5);
   -webkit-box-orient: vertical;
@@ -315,7 +339,7 @@ main .FoodArea--box--topright--label {
   text-align: center;
   width: 100%;
   height: 10%;
-  background-color: white;
+  background-color: #525252;
 }
 
 main .FoodArea--box--topright--table {
@@ -399,7 +423,7 @@ main .FoodArea--box--bottomleft {
 
 main .FoodArea--box--bottomleft-saveRecipe {
   text-align: center;
-  background-color: white;
+  background-color: #525252;
   overflow: auto;
 }
 
@@ -443,7 +467,7 @@ main .FoodArea--box--bottomright h1 {
   text-align: center;
   width: 100%;
   height: 10%;
-  background-color: white;
+  background-color: #525252;
 }
 
 main .FoodArea--box--bottomright-ingrediants {
@@ -460,5 +484,11 @@ main .FoodArea--box--bottomright-ingrediantslist {
   width: 100%;
   background-color: rgba(175, 175, 175, 0.6);
   overflow: auto;
+}
+
+main .selectionArea {
+  width: 100%;
+  height: 500px;
+  background-color: pink;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -47,7 +47,7 @@
         <option value="">4</option>
         <option value="">5</option>
       </select>
-      <input type="submit" value="Fetch Food">
+      <input type="button" value="Fetch Food">
      </form>
    </div>
 
@@ -65,44 +65,47 @@
        </div>
      </section>
      <div class="counter">
-      <div class="counter-numbers">
-        <h3>Countdown to new items</h3>
-        <h3 class=""></h3>
+      <div class="counter--left">
+
       </div>
-      <div class="counter-numbers">
-        <h3></h3>
+      <div class="counter--numbers">
+        <h3>Countdown to new items</h3>
+        <div class="counter--numbers--container">
+          <h3 class="counter--numbers--container-LeftNum">00.</h3>
+          <h3 class="counter--numbers--container-middleNum" id="middle-Counter">00.</h3>
+          <h3 class="counter--numbers--container-rightNum" id="right-Counter">00</h3>
+        </div>
+      </div>
+      <div class="counter--right">
+
       </div>
     </div>
      <section class="FoodArea" id="FoodArea">
        <div class="FoodArea--box">
         <div class="FoodArea--box--topleft">
-          <img src="" alt="" srcset="" id="apiImage">
+          <img src="https://www.edamam.com/web-img/74b/74bfb16655500083c4af92bcf45889f7.jpg" alt="" srcset="" id="apiImage">
         </div>
         <div class="FoodArea--box--topright">
           <h1 class="FoodArea--box--topright--label">FOOD:</h1>
           <table class="FoodArea--box--topright--table">
             <tr>
-              <td>Dish-Type:</td>
-              <td class="dishtype"></td>
+              <td>Dish-Type:</td><td class="dishtype"></td>
             </tr>
             <tr>
-              <td>CuisineType:</td>
-              <td class="cuisinetype"></td>
+              <td>CuisineType:</td><td class="cuisinetype"></td>
             </tr>
             <tr>
-              <td>Calories:</td>
-              <td class="calories"></td>
+              <td>Calories:</td><td class="calories"></td>
             </tr>
             <tr>
-              <td>Total-Weight:</td>
-              <td class="totalweight"></td>
+              <td>Total-Weight:</td><td class="totalweight"></td>
             </tr>
           </table>
         </div>
         <div class="FoodArea--box--middleleft">
           <div class="FoodArea--box--middleleft--searchArea">
-            <input aria-label="food-input" id="food-input" onchange="handleFoodChange()" placeholder="type food e:g chicken salad kale"/>
-            <h2><i class="fas fa-search" id="recipe-button" onclick="handleRecipeClick()"></i></h2>
+            <input aria-label="food-input" id="food-input" placeholder="type food e:g chicken salad kale"/>
+            <h2><i class="fas fa-search" id="recipe-button"></i></h2>
           </div>
         </div>
         <div class="FoodArea--box--bottomleft">
@@ -124,44 +127,21 @@
         </div>
       </div>
      </section>
+     <section class="selectionArea">
+      <div class="selectionArea--grid">
+        <div class="box1"></div><div class="box2"></div><div class="box3"></div>
+        <div class="box4"></div><div class="box5"></div><div class="box6"></div>
+        <div class="box7"></div><div class="box8"></div><div class="box9"></div>
+        <div class="box10"></div><div class="box11"></div><div class="box12"></div>
+
+      </div>
+     </section>
    </main>
    <footer>
 
    </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   </div>
-
-
-
-
-
-
-
-  <!-- <section id="recipe-section">
-    <h2 class="section-heading">Welcome to the Recipe Finder!</h2>
-    <input
-      aria-label="food-input"
-      id="food-input"
-      onchange="handleFoodChange()"
-    />
-    <button id="recipe-button" onclick="handleRecipeClick()">
-      Give me a recipe!
-    </button>
-    <a id="recipe-label"></a>
-  </section> -->
   <script src="./main.js"></script>
   
 </body>
