@@ -341,13 +341,13 @@ main .FoodArea--box--topright {
 main .FoodArea--box--topright--label {
   text-align: center;
   width: 100%;
-  height: 10%;
+  height: 20%;
   background-color: #525252;
 }
 
 main .FoodArea--box--topright--table {
   width: 100%;
-  height: 90%;
+  height: 80%;
   border: whitesmoke thin solid;
   background-color: rgba(255, 255, 255, 0.5);
   overflow: auto;
@@ -428,7 +428,6 @@ main .FoodArea--box--bottomleft {
 main .FoodArea--box--bottomleft-saveRecipe {
   text-align: center;
   background-color: #525252;
-  overflow: auto;
 }
 
 main .FoodArea--box--bottomleft-table {
@@ -637,7 +636,7 @@ main .selectionArea--grid--box6 {
   color: white;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 900px) and (min-width: 660px) {
   .page-area {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -676,26 +675,254 @@ main .selectionArea--grid--box6 {
     -ms-grid-column: 1;
     grid-area: box2;
   }
+  main .FoodArea--box--topright h1 {
+    font-size: 1.3rem;
+  }
   main .FoodArea--box--middleleft {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
     grid-area: box3;
+  }
+  main .FoodArea--box--middleleft i {
+    font-size: 2rem;
   }
   main .FoodArea--box--bottomleft {
     -ms-grid-row: 4;
     -ms-grid-column: 1;
     grid-area: box4;
   }
+  main .FoodArea--box--bottomleft h1 {
+    font-size: 1.3rem;
+  }
   main .FoodArea--box--bottomright {
     -ms-grid-row: 5;
     -ms-grid-column: 1;
     grid-area: box5;
+  }
+  main .FoodArea--box--bottomright h1 {
+    font-size: 1.3rem;
+    height: 30%;
+  }
+  main .FoodArea--box--bottomright-ingrediants {
+    display: none;
+  }
+  main .FoodArea--box--bottomright-ingrediantslist {
+    text-align: left;
+    height: 70%;
+    width: 100%;
+    background-color: rgba(175, 175, 175, 0.6);
+    overflow: auto;
   }
   main .selectionArea--grid {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
     -ms-grid-rows: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .page-area {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .header--nav {
+    width: 100vw;
+  }
+  .header--nav-h1 {
+    font-size: 1rem;
+  }
+  .header--nav--ul {
+    display: none;
+  }
+  .reservationArea {
+    width: 100vw;
+  }
+  .reservationArea form {
+    width: 100%;
+  }
+  .reservationArea form select {
+    display: none;
+  }
+  .reservationArea form input:nth-child(2) {
+    display: none;
+  }
+  main .starterArea {
+    height: 100vh;
+    width: 100%;
+  }
+  main .starterArea--template {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 95%;
+    width: 100%;
+    background-image: url(/images/resturant1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main .starterArea--template .fa-long-arrow-alt-left {
+    display: none;
+  }
+  main .starterArea--template--centerScreen {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+  }
+  main .starterArea--template .fa-long-arrow-alt-right {
+    display: none;
+  }
+  main .counter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 180px;
+    width: 100%;
+    background-color: #3D3D3D;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  main .counter--left {
+    display: none;
+  }
+  main .counter--numbers {
+    display: flexbox;
+    height: 100%;
+    width: 100%;
+    border-bottom: thin black solid;
+    background-color: #525252;
+  }
+  main .counter--numbers h3 {
+    text-align: center;
+    background-color: white;
+  }
+  main .counter--numbers--container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    height: 70%;
+    font-size: 2rem;
+  }
+  main .counter--right {
+    display: none;
+  }
+  main .FoodArea--box {
+    height: 100vh;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "box1" "box3" "box2"  "box4";
+  }
+  main .FoodArea--box--topleft {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: box1;
+  }
+  main .FoodArea--box--topright {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: box2;
+  }
+  main .FoodArea--box--topright h1 {
+    font-size: 1rem;
+  }
+  main .FoodArea--box--middleleft {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: box3;
+  }
+  main .FoodArea--box--middleleft--searchArea {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main .FoodArea--box--middleleft--searchArea input {
+    display: flexbox;
+    width: 100%;
+    height: 50%;
+    font-size: 1.5rem;
+  }
+  main .FoodArea--box--middleleft--searchArea h2 {
+    display: flexbox;
+    width: 100%;
+    height: 50%;
+    font-size: 1rem;
+    text-align: center;
+    background-color: #3D3D3D;
+  }
+  main .FoodArea--box--middleleft--searchArea h2 i {
+    font-size: 3rem;
+  }
+  main .FoodArea--box--bottomleft {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: box4;
+    overflow: hidden;
+  }
+  main .FoodArea--box--bottomleft h1 {
+    font-size: 1rem;
+  }
+  main .FoodArea--box--bottomleft-table {
+    overflow-y: auto;
+  }
+  main .FoodArea--box--bottomright {
+    display: none;
+  }
+  main .selectionArea--grid {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100vh;
+  }
+  main .selectionArea--grid--box1 {
+    background-position: center;
+  }
+  main .selectionArea--grid--box2 {
+    background-position: center;
+  }
+  main .selectionArea--grid--box3 {
+    background-position: center;
+  }
+  main .selectionArea--grid--box4 {
+    background-position: center;
+  }
+  main .selectionArea--grid--box5 {
+    background-position: center;
+  }
+  main .selectionArea--grid--box6 {
+    background-position: center;
   }
 }
 /*# sourceMappingURL=styles.css.map */

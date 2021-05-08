@@ -14,7 +14,6 @@ function sliderRight(){
   }
 }
 function sliderLeft(){
-  console.log("myhead")
   if(imgCounter == 0){
     imgCounter = 2
     console.log("2")
@@ -55,7 +54,6 @@ slideLeftButton.addEventListener("click",()=>{
 // 1. build timer outline 00.02.00
 // 2. use set interval 
 // 3. minues each number
-// 4
 let getMiddleNumber = document.getElementById("middle-Counter")
 let getRightNumber = document.getElementById("right-Counter")
 let MiddleCountDown = 4
@@ -167,7 +165,7 @@ function getsavedRecipes(label,url){
 async function returnFoodAPI(food,callback){
   let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
   data = await response.json()
-  callback(data.hits) 
+  callback(data.hits)
 }
 
 // 1. grab the object from the fetch
@@ -181,7 +179,7 @@ function getInnerPTag(numb){
   let getP = document.querySelector(`.selectionArea--grid--box${numb} p`)
   return getP
 }
-  
+  // this was me just practising callback functions i understand there outdated an are bad practice
 function getSelectionImages(){
   returnFoodAPI("pizza",(data)=>{
     let backgroundImage = `URL(${data[2].recipe.image})`
