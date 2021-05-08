@@ -828,7 +828,7 @@ main .selectionArea--grid--box6 {
     display: none;
   }
   main .FoodArea--box {
-    height: 100vh;
+    height: 95%;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     -ms-grid-rows: 1fr 1fr 1fr 1fr;
