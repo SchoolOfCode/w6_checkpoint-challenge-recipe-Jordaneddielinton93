@@ -135,8 +135,9 @@ main{
       & .fa-long-arrow-alt-left{
         width: 10%;
         font-size: 4.5rem;
-        color: white;
+        color: red;
         cursor: pointer;
+        border-bottom: white thick solid;
         opacity: 0.5;
         &:hover{
           opacity: 1;
@@ -166,8 +167,9 @@ main{
       & .fa-long-arrow-alt-right{
         width: 10%;
         font-size: 4.5rem;
-        color: white;
+        color: red;
         cursor: pointer;
+        border-bottom: white thick solid;
         opacity: 0.5;
         text-align: right;
         

@@ -174,8 +174,9 @@ main .starterArea--template {
 main .starterArea--template .fa-long-arrow-alt-left {
   width: 10%;
   font-size: 4.5rem;
-  color: white;
+  color: red;
   cursor: pointer;
+  border-bottom: white thick solid;
   opacity: 0.5;
 }
 
@@ -212,8 +213,9 @@ main .starterArea--template--centerScreen a h3:hover {
 main .starterArea--template .fa-long-arrow-alt-right {
   width: 10%;
   font-size: 4.5rem;
-  color: white;
+  color: red;
   cursor: pointer;
+  border-bottom: white thick solid;
   opacity: 0.5;
   text-align: right;
 }

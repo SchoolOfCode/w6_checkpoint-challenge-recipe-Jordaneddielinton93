@@ -1,9 +1,11 @@
 
+// 1. get images
 const sliderImages = [
   {images:"url(/images/waiter.jpg)"},
   {images:"url(/images/dogfetch.jpg)"},
   {images:"url(/images/resturant1.jpg)"}
 ]
+// 2. slide to the right function
 let sliderbackground = document.querySelector(".starterArea--template").style
 imgCounter = 0
 function sliderRight(){
@@ -13,6 +15,7 @@ function sliderRight(){
     imgCounter = 0
   }
 }
+// 3. slide to the left function
 function sliderLeft(){
   if(imgCounter == 0){
     imgCounter = 2
@@ -28,6 +31,7 @@ function sliderLeft(){
     sliderbackground.backgroundImage = sliderImages[2].images
   }
 }
+// 4. interval timer to change automatically slider right
 setInterval(()=>{
   sliderRight()
 },5000)
@@ -53,12 +57,14 @@ slideLeftButton.addEventListener("click",()=>{
 // 0. start with a function
 // 1. build timer outline 00.02.00
 // 2. use set interval 
-// 3. minues each number
+// 3. minus each number
 let getMiddleNumber = document.getElementById("middle-Counter")
 let getRightNumber = document.getElementById("right-Counter")
+// middle number countdown
 let MiddleCountDown = 4
+// right number countdown
 let RightCountDown = 60
-
+// once both hit 0 stop the timer
 let CountDownTimer = setInterval(()=>{
   getMiddleNumber.innerText = `0${MiddleCountDown}.`
   RightCountDown = Math.floor(RightCountDown-1)
@@ -117,6 +123,7 @@ async function fetchRecipe(food) {
   getIngredientslist(randRecipe.ingredients)
   getsavedRecipes(randRecipe.label,randRecipe.url)
 }
+// i could have used a deconstructer below if i get time i will replace code
 function getImagesURL(url){
   document.querySelector("#apiImage").src = url
 }
