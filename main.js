@@ -55,26 +55,26 @@ slideLeftButton.addEventListener("click",()=>{
 
 // Goal to build a timer that counts down from 5mins
 // 0. start with a function
-// 1. build timer outline 00.02.00
+// 1. build timer 00.02.00
 // 2. use set interval 
-// 3. minus each number
-let getMiddleNumber = document.getElementById("middle-Counter")
+// 3. minus each minute number at secounds interval 0
+let getMinuteNumber = document.getElementById("middle-Counter")
 let getRightNumber = document.getElementById("right-Counter")
-// middle number countdown
-let MiddleCountDown = 4
+// Minute number countdown
+let MinuteCountDown = 4
 // right number countdown
 let RightCountDown = 60
 // once both hit 0 stop the timer
 let CountDownTimer = setInterval(()=>{
-  getMiddleNumber.innerText = `0${MiddleCountDown}.`
+  getMinuteNumber.innerText = `0${MinuteCountDown}.`
   RightCountDown = Math.floor(RightCountDown-1)
   getRightNumber.innerText = RightCountDown
-  if(MiddleCountDown == 0 && RightCountDown == 0){
+  if(MinuteCountDown == 0 && RightCountDown == 0){
     clearInterval(CountDownTimer)
   }
   if(RightCountDown == 0){
     RightCountDown = 59
-    MiddleCountDown-=1
+    MinuteCountDown-=1
   }
   
 },1000)
@@ -97,7 +97,7 @@ RecipeEnterKey.addEventListener("keydown",(event)=>{
 RecipeClick = document.getElementById("recipe-button")
 RecipeClick.addEventListener("click",handleFoodChange)
 
-// 3. check if there is a value typed and call api
+// 3. check if there is a value typed and call api if there is
 function handleFoodChange() {
   foodToSearch = document.getElementById("food-input").value;
   if(foodToSearch.length <= 1){
@@ -115,6 +115,7 @@ async function fetchRecipe(food) {
   let randNum = Math.floor(Math.random()*data.hits.length)
   console.log(data.hits[2].recipe)
   let randRecipe = data.hits[randNum].recipe
+  // get each value of api call with random selection
   const {
     image,
     label,
@@ -163,58 +164,49 @@ function getsavedRecipes(label,url){
   savedRecipe.append(createTR)
 }
 
-async function returnFoodAPI(food,callback){
+async function returnFoodAPI(food){
   let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
   data = await response.json()
-  callback(data.hits)
+  return data.hits
 }
-// 1. grab the object from the fetch
-// 2. call the object and use the data to change background of each box
-// 3. must be a call back since we are waiting for the fetch and i need practice
-function getBoxNumberIMG(numb){
+// this was me just practising callback functions i understand they are outdated and bad practice✔️
+// use aysnc func to refactor the callbacks ✔️
+function getBoxNumberIMG(numb,food,numb2){
   let getbox = document.querySelector(`.selectionArea--grid--box${numb}`)
-  return getbox.style
+  return getbox.style.backgroundImage = `URL(${food[numb2].recipe.image})`
 }
-function getInnerPTag(numb){
+function getInnerPTag(numb,numb2,food){
   let getP = document.querySelector(`.selectionArea--grid--box${numb} p`)
-  return getP
+  return getP.innerText = food[numb2].recipe.label
 }
-  // this was me just practising callback functions i understand there outdated an are bad practice✔️
-  // use aysnc to refator the callbacks
-async function getSelectionImages(){
-  returnFoodAPI("pizza",(data)=>{
-    let backgroundImage = `URL(${data[2].recipe.image})`
-    getBoxNumberIMG(1).backgroundImage = backgroundImage
-    getInnerPTag(1).innerText = data[2].recipe.label
-  })
-  returnFoodAPI("pasta",(data)=>{
-    let backgroundImage = `URL(${data[2].recipe.image})`
-    getBoxNumberIMG(2).backgroundImage = backgroundImage
-    getInnerPTag(2).innerText = data[2].recipe.label
-  })
-  returnFoodAPI("burger",(data)=>{
-    let backgroundImage = `URL(${data[2].recipe.image})`
-    getBoxNumberIMG(3).backgroundImage = backgroundImage
-    getInnerPTag(3).innerText = data[2].recipe.label
-  })
-  returnFoodAPI("soup",(data)=>{
-    let backgroundImage = `URL(${data[2].recipe.image})`
-    getBoxNumberIMG(4).backgroundImage = backgroundImage
-    getInnerPTag(4).innerText = data[2].recipe.label
-  })
-  returnFoodAPI("salad",(data)=>{
-    let backgroundImage = `URL(${data[4].recipe.image})`
-    getBoxNumberIMG(5).backgroundImage = backgroundImage
-    getInnerPTag(5).innerText = data[2].recipe.label
-  })
-  returnFoodAPI("bread",(data)=>{
-    let backgroundImage = `URL(${data[2].recipe.image})`
-    getBoxNumberIMG(6).backgroundImage = backgroundImage
-    getInnerPTag(6).innerText = data[2].recipe.label
-  })
+async function getImagesLabel(){
+    let pizzaHits = await returnFoodAPI("pizza")
+    let pastaHits = await returnFoodAPI("pasta")
+    let burgerHits = await returnFoodAPI("burger")
+    let soupHits = await returnFoodAPI("soup")
+    let saladHits = await returnFoodAPI("salad")
+    let breadHits = await returnFoodAPI("bread")
+
+    getBoxNumberIMG(1,pizzaHits,2)
+    getInnerPTag(1,2,pizzaHits)
+
+    getBoxNumberIMG(2,pastaHits,2)
+    getInnerPTag(2,2,pastaHits)
+
+    getBoxNumberIMG(3,burgerHits,2)
+    getInnerPTag(3,2,burgerHits)
+
+    getBoxNumberIMG(4,soupHits,2)
+    getInnerPTag(4,2,soupHits)
+
+    getBoxNumberIMG(5,saladHits,3)
+    getInnerPTag(5,3,saladHits)
+
+    getBoxNumberIMG(6,breadHits,2)
+    getInnerPTag(6,2,breadHits)
 
 }
-getSelectionImages()
+getImagesLabel()
 
 
 
