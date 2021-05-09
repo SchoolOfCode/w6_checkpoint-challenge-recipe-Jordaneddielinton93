@@ -106,45 +106,38 @@ function handleFoodChange() {
     return fetchRecipe(foodToSearch)
   }
 }
+
+
 // 4 get recipe searched for and fill in the info on screen (e:g images, ingrediants)
 async function fetchRecipe(food) {
   let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
   let data = await response.json()
   let randNum = Math.floor(Math.random()*data.hits.length)
-  console.log(data.hits[2].recipe.image)
+  console.log(data.hits[2].recipe)
   let randRecipe = data.hits[randNum].recipe
-  getImagesURL(randRecipe.image)
-  getfoodLabel(randRecipe.label)
-  getDishType(randRecipe.dishType)
-  getCuisineType(randRecipe.cuisineType)
-  getCalories(randRecipe.calories)
-  getTotalWeight(randRecipe.totalWeight)
-  getIngredients(randRecipe.ingredientLines)
-  getIngredientslist(randRecipe.ingredients)
-  getsavedRecipes(randRecipe.label,randRecipe.url)
-}
-// i could have used a deconstructer below if i get time i will replace code
-function getImagesURL(url){
-  document.querySelector("#apiImage").src = url
-}
-function getfoodLabel(label){
+  const {
+    image,
+    label,
+    dishType,
+    cuisineType,
+    calories,
+    totalWeight,
+    ingredientLines,
+    ingredients,
+    url} = randRecipe
+  
+  document.querySelector("#apiImage").src = image
   document.querySelector(".FoodArea--box--topright--label").innerText = label 
+  document.querySelector(".dishtype").innerText = dishType
+  document.querySelector(".cuisinetype").innerText = cuisineType
+  document.querySelector(".calories").innerText = calories
+  document.querySelector(".totalweight").innerText = totalWeight
+  document.querySelector(".FoodArea--box--bottomright-ingrediants").innerText = ingredientLines
+  getIngredientslist(ingredients)
+  getsavedRecipes(label,url)
 }
-function getDishType(dishtype){
-  document.querySelector(".dishtype").innerText = dishtype
-}
-function getCuisineType(cuisine){
-  document.querySelector(".cuisinetype").innerText = cuisine
-}
-function getCalories(cal){
-  document.querySelector(".calories").innerText = cal
-}
-function getTotalWeight(weight){
-  document.querySelector(".totalweight").innerText = weight
-}
-function getIngredients(ingr){
-  document.querySelector(".FoodArea--box--bottomright-ingrediants").innerText = ingr
-}
+// i could have used a deconstructer above if i get time i will replace code ✔️REFACTORED✔️
+
 let ingrediantsList = document.querySelector(".FoodArea--box--bottomright-ingrediantslist")
 function getIngredientslist(ingri){
   ingrediantsList.innerHTML = ""
@@ -154,6 +147,7 @@ function getIngredientslist(ingri){
     ingrediantsList.append(CreatedLi)
   })
 }
+// creating a table with information on the searched food 
 let savedRecipe = document.querySelector(".FoodArea--box--bottomleft-table")
 function getsavedRecipes(label,url){
   let createTR = document.createElement("tr")
@@ -174,10 +168,9 @@ async function returnFoodAPI(food,callback){
   data = await response.json()
   callback(data.hits)
 }
-
 // 1. grab the object from the fetch
 // 2. call the object and use the data to change background of each box
-// 3. must be a call back since we are waiting for the fetch and u need practice
+// 3. must be a call back since we are waiting for the fetch and i need practice
 function getBoxNumberIMG(numb){
   let getbox = document.querySelector(`.selectionArea--grid--box${numb}`)
   return getbox.style
@@ -186,8 +179,9 @@ function getInnerPTag(numb){
   let getP = document.querySelector(`.selectionArea--grid--box${numb} p`)
   return getP
 }
-  // this was me just practising callback functions i understand there outdated an are bad practice
-function getSelectionImages(){
+  // this was me just practising callback functions i understand there outdated an are bad practice✔️
+  // use aysnc to refator the callbacks
+async function getSelectionImages(){
   returnFoodAPI("pizza",(data)=>{
     let backgroundImage = `URL(${data[2].recipe.image})`
     getBoxNumberIMG(1).backgroundImage = backgroundImage
