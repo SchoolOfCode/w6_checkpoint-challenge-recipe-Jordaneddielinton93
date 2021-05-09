@@ -59,21 +59,21 @@ slideLeftButton.addEventListener("click",()=>{
 // 2. use set interval 
 // 3. minus each minute number at secounds interval 0
 let getMinuteNumber = document.getElementById("middle-Counter")
-let getRightNumber = document.getElementById("right-Counter")
+let getSecoundsNumber = document.getElementById("right-Counter")
 // Minute number countdown
 let MinuteCountDown = 4
-// right number countdown
-let RightCountDown = 60
+// Secounds number countdown
+let SecoundsCountDown = 60
 // once both hit 0 stop the timer
 let CountDownTimer = setInterval(()=>{
   getMinuteNumber.innerText = `0${MinuteCountDown}.`
-  RightCountDown = Math.floor(RightCountDown-1)
-  getRightNumber.innerText = RightCountDown
-  if(MinuteCountDown == 0 && RightCountDown == 0){
+  SecoundsCountDown = Math.floor(SecoundsCountDown-1)
+  getSecoundsNumber.innerText = SecoundsCountDown
+  if(MinuteCountDown == 0 && SecoundsCountDown == 0){
     clearInterval(CountDownTimer)
   }
-  if(RightCountDown == 0){
-    RightCountDown = 59
+  if(SecoundsCountDown == 0){
+    SecoundsCountDown = 59
     MinuteCountDown-=1
   }
   
@@ -110,12 +110,12 @@ function handleFoodChange() {
 
 // 4 get recipe searched for and fill in the info on screen (e:g images, ingrediants)
 async function fetchRecipe(food) {
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)
   let data = await response.json()
   let randNum = Math.floor(Math.random()*data.hits.length)
   console.log(data.hits[2].recipe)
   let randRecipe = data.hits[randNum].recipe
-  // get each value of api call with random selection
+  // get each value of api call with random number selection
   const {
     image,
     label,
@@ -163,10 +163,22 @@ function getsavedRecipes(label,url){
   createTR.append(createTD1,createTD2)
   savedRecipe.append(createTR)
 }
+// if the images do not load due to server limit
+function imageReloader(){
+  console.log("YOU HAVE REQUESTED TO MANY TIMES THE SERVER LIMIT IS 10 REQUESTS PER MINUTE IT WILL NOW RELOAD THE REQUEST IN 1 MINUTE"),reloader = true
+  if(reloader == true)
+    setTimeout(()=>{
+      getImagesLabel()
+      console.log("tester")
+      reloader = false
+    },68000)
+}
+
 
 async function returnFoodAPI(food){
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)
   data = await response.json()
+  
   return data.hits
 }
 // this was me just practising callback functions i understand they are outdated and bad practice✔️
