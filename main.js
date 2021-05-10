@@ -61,7 +61,7 @@ slideLeftButton.addEventListener("click",()=>{
 let getMinuteNumber = document.getElementById("middle-Counter")
 let getSecoundsNumber = document.getElementById("right-Counter")
 // Minute number countdown
-let MinuteCountDown = 4
+let MinuteCountDown = 1
 // Secounds number countdown
 let SecoundsCountDown = 60
 // once both hit 0 stop the timer
@@ -70,7 +70,9 @@ let CountDownTimer = setInterval(()=>{
   SecoundsCountDown = Math.floor(SecoundsCountDown-1)
   getSecoundsNumber.innerText = SecoundsCountDown
   if(MinuteCountDown == 0 && SecoundsCountDown == 0){
-    clearInterval(CountDownTimer)
+    MinuteCountDown = 1
+    TurnOnRandImageByCounter = true
+    getImagesLabel()
   }
   if(SecoundsCountDown == 0){
     SecoundsCountDown = 59
@@ -165,14 +167,20 @@ function getsavedRecipes(label,url){
 }
 // if the images do not load due to server limit
 function imageReloader(){
+  let removeSearchBar = document.querySelector("#food-input")
+  removeSearchBar.style.display = "none"
   console.log("YOU HAVE REQUESTED TO MANY TIMES THE SERVER LIMIT IS 10 REQUESTS PER MINUTE IT WILL NOW RELOAD THE REQUEST IN 1 MINUTE"),reloader = true
   if(reloader == true)
     setTimeout(()=>{
       getImagesLabel()
-      console.log("tester")
+      removeSearchBar.style.display = "flexbox"
+      console.log("reloading now :)")
       reloader = false
     },68000)
 }
+
+
+
 
 
 async function returnFoodAPI(food){
@@ -187,10 +195,12 @@ function getBoxNumberIMG(numb,food,numb2){
   let getbox = document.querySelector(`.selectionArea--grid--box${numb}`)
   return getbox.style.backgroundImage = `URL(${food[numb2].recipe.image})`
 }
-function getInnerPTag(numb,numb2,food){
+function getInnerPTag(numb,food,numb2){
   let getP = document.querySelector(`.selectionArea--grid--box${numb} p`)
   return getP.innerText = food[numb2].recipe.label
 }
+
+let TurnOnRandImageByCounter = false
 async function getImagesLabel(){
     let pizzaHits = await returnFoodAPI("pizza")
     let pastaHits = await returnFoodAPI("pasta")
@@ -199,23 +209,29 @@ async function getImagesLabel(){
     let saladHits = await returnFoodAPI("salad")
     let breadHits = await returnFoodAPI("bread")
 
-    getBoxNumberIMG(1,pizzaHits,2)
-    getInnerPTag(1,2,pizzaHits)
+    let randNum = Math.floor(Math.random()*10)+1
+    let number = 2
+    if(TurnOnRandImageByCounter == true){
+      number = randNum
+    }
 
-    getBoxNumberIMG(2,pastaHits,2)
-    getInnerPTag(2,2,pastaHits)
+    getBoxNumberIMG(1,pizzaHits,number)
+    getInnerPTag(1,pizzaHits,number)
 
-    getBoxNumberIMG(3,burgerHits,2)
-    getInnerPTag(3,2,burgerHits)
+    getBoxNumberIMG(2,pastaHits,number)
+    getInnerPTag(2,pastaHits,number)
 
-    getBoxNumberIMG(4,soupHits,2)
-    getInnerPTag(4,2,soupHits)
+    getBoxNumberIMG(3,burgerHits,number)
+    getInnerPTag(3,burgerHits,number)
 
-    getBoxNumberIMG(5,saladHits,3)
-    getInnerPTag(5,3,saladHits)
+    getBoxNumberIMG(4,soupHits,number)
+    getInnerPTag(4,soupHits,number)
 
-    getBoxNumberIMG(6,breadHits,2)
-    getInnerPTag(6,2,breadHits)
+    getBoxNumberIMG(5,saladHits,number)
+    getInnerPTag(5,saladHits,number)
+
+    getBoxNumberIMG(6,breadHits,number)
+    getInnerPTag(6,breadHits,number)
 
 }
 getImagesLabel()
