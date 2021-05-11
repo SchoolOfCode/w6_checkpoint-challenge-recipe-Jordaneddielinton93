@@ -5,6 +5,7 @@ $page-width:1200px;
 
 @mixin gridborder {
   border: whitesmoke thin solid;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5)
 }
 *{
@@ -212,7 +213,7 @@ main{
         width: 100%;
         height: 70%;
         font-size: 2rem;
-        color: white;
+        color: black;
       }
     }
     &--right{
@@ -228,13 +229,15 @@ main{
     background : url(/images/dust.jpg)no-repeat;
     background-size: cover;
     font-size: 1.3rem;
+    
     &--box{
       display: grid;
       width: 90%;
       height: 90%;
       margin:auto;
       background-color: rgba(155, 155, 155, 0) ;
-      border: thin solid $lightgray;
+      border: thick solid $lightgray;
+      border-radius: 20px;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 5fr 1fr 5fr;
       grid-template-areas:
@@ -246,6 +249,7 @@ main{
         grid-area: box1;
         @include gridborder();
         justify-content: center;
+        border-radius: 20px;
         & #apiImage{
           border-left: $darkgray thick solid;
           border-right: $darkgray thick solid;
@@ -271,10 +275,14 @@ main{
           @include gridborder();
           overflow: auto;
           & tr td:nth-child(1){
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
             border: thin solid red;
             width: 30%;
           }
           & tr td:nth-child(2){
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
             border: thin solid red;
             width: 70%;
             text-align: center;
@@ -289,6 +297,8 @@ main{
           width: 100%;
           height: 100%;
           align-items: center;
+          
+
           &-limit{
             display: none;
             
@@ -303,6 +313,7 @@ main{
             font-weight: 900;
             font-size: 1.5rem;
             text-align: center;
+            border-radius: 20px;
 
           }
           & h2{
@@ -437,7 +448,6 @@ main{
       &--box6{
         @include boxNumbStyles();
       }
-      
     }
   }
 }

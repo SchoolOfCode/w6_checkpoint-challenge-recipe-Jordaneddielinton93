@@ -72,7 +72,7 @@ let CountDownTimer = setInterval(()=>{
   if(MinuteCountDown == 0 && SecoundsCountDown == 0){
     MinuteCountDown = 1
     TurnOnRandImageByCounter = true
-    getImagesLabel()
+    // getImagesLabel()
   }
   if(SecoundsCountDown == 0){
     SecoundsCountDown = 59
@@ -85,8 +85,8 @@ let CountDownTimer = setInterval(()=>{
 
 // below is the api to search for foods
 let foodToSearch = null;
-const YOUR_APP_ID = "4f8a14de"
-const YOUR_APP_KEY = "9b9c0fb4904a63e366b8342ca9279f97"
+const YOUR_APP_ID = "7e7a0978"
+const YOUR_APP_KEY = "f85c0af25819d11451c14a32b261bd4a	"
 // 1 when you press enter get search value (e:g words typed) and get api
 RecipeEnterKey = document.getElementById("food-input")
 RecipeEnterKey.addEventListener("keydown",(event)=>{
@@ -112,7 +112,7 @@ function handleFoodChange() {
 
 // 4 get recipe searched for and fill in the info on screen (e:g images, ingrediants)
 async function fetchRecipe(food) {
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)//.catch(imageReloader)
   let data = await response.json()
   let randNum = Math.floor(Math.random()*data.hits.length)
   console.log(data.hits[2].recipe)
@@ -167,13 +167,10 @@ function getsavedRecipes(label,url){
 }
 // if the images do not load due to server limit
 function imageReloader(){
-  let removeSearchBar = document.querySelector("#food-input")
-  removeSearchBar.style.display = "none"
   console.log("YOU HAVE REQUESTED TO MANY TIMES THE SERVER LIMIT IS 10 REQUESTS PER MINUTE IT WILL NOW RELOAD THE REQUEST IN 1 MINUTE"),reloader = true
   if(reloader == true)
     setTimeout(()=>{
-      getImagesLabel()
-      removeSearchBar.style.display = "flexbox"
+      // getImagesLabel()
       console.log("reloading now :)")
       reloader = false
     },68000)
@@ -184,19 +181,19 @@ function imageReloader(){
 
 
 async function returnFoodAPI(food){
-  let response = await fetch(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=97c4b636572c4da8bccf250ccd4fbacb&query=${food}`).catch(imageReloader)
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)//.catch(imageReloader)
   data = await response.json()
-  return data.results
+  return data.hits
 }
 // this was me just practising callback functions i understand they are outdated and bad practice✔️
 // use aysnc func to refactor the callbacks ✔️
 function getBoxNumberIMG(numb,food,numb2){
   let getbox = document.querySelector(`.selectionArea--grid--box${numb}`)
-  return getbox.style.backgroundImage = `URL(${food[numb2].image})`
+  return getbox.style.backgroundImage = `URL(${food[numb2].recipe.image})`
 }
 function getInnerPTag(numb,food,numb2){
   let getP = document.querySelector(`.selectionArea--grid--box${numb} p`)
-  return getP.innerText = food[numb2].title
+  return getP.innerText = food[numb2].recipe.label
 }
 
 let TurnOnRandImageByCounter = false

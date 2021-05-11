@@ -271,7 +271,7 @@ main .counter--numbers--container {
   width: 100%;
   height: 70%;
   font-size: 2rem;
-  color: white;
+  color: black;
 }
 
 main .counter--right {
@@ -296,7 +296,8 @@ main .FoodArea--box {
   height: 90%;
   margin: auto;
   background-color: rgba(155, 155, 155, 0);
-  border: thin solid #525252;
+  border: thick solid #525252;
+  border-radius: 20px;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   -ms-grid-rows: 5fr 1fr 5fr;
@@ -312,10 +313,12 @@ main .FoodArea--box--topleft {
   -ms-grid-column: 1;
   grid-area: box1;
   border: whitesmoke thin solid;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border-radius: 20px;
 }
 
 main .FoodArea--box--topleft #apiImage {
@@ -335,6 +338,7 @@ main .FoodArea--box--topright {
   -ms-grid-column: 2;
   grid-area: box2;
   border: whitesmoke thin solid;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -353,16 +357,21 @@ main .FoodArea--box--topright--table {
   width: 100%;
   height: 80%;
   border: whitesmoke thin solid;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
   overflow: auto;
 }
 
 main .FoodArea--box--topright--table tr td:nth-child(1) {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   border: thin solid red;
   width: 30%;
 }
 
 main .FoodArea--box--topright--table tr td:nth-child(2) {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   border: thin solid red;
   width: 70%;
   text-align: center;
@@ -373,6 +382,7 @@ main .FoodArea--box--middleleft {
   -ms-grid-column: 1;
   grid-area: box3;
   border: whitesmoke thin solid;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -400,6 +410,7 @@ main .FoodArea--box--middleleft--searchArea input {
   font-weight: 900;
   font-size: 1.5rem;
   text-align: center;
+  border-radius: 20px;
 }
 
 main .FoodArea--box--middleleft--searchArea h2 {
@@ -430,6 +441,7 @@ main .FoodArea--box--bottomleft {
   height: 100%;
   overflow: auto;
   border: whitesmoke thin solid;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -442,6 +454,7 @@ main .FoodArea--box--bottomleft-table {
   width: 100%;
   height: 90%;
   border: whitesmoke thin solid;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
   overflow: auto;
 }
@@ -471,6 +484,7 @@ main .FoodArea--box--bottomright {
   -ms-grid-column: 2;
   grid-area: box4;
   border: whitesmoke thin solid;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
