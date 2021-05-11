@@ -184,54 +184,53 @@ function imageReloader(){
 
 
 async function returnFoodAPI(food){
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)
+  let response = await fetch(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=97c4b636572c4da8bccf250ccd4fbacb&query=${food}`).catch(imageReloader)
   data = await response.json()
-  
-  return data.hits
+  return data.results
 }
 // this was me just practising callback functions i understand they are outdated and bad practice✔️
 // use aysnc func to refactor the callbacks ✔️
 function getBoxNumberIMG(numb,food,numb2){
   let getbox = document.querySelector(`.selectionArea--grid--box${numb}`)
-  return getbox.style.backgroundImage = `URL(${food[numb2].recipe.image})`
+  return getbox.style.backgroundImage = `URL(${food[numb2].image})`
 }
 function getInnerPTag(numb,food,numb2){
   let getP = document.querySelector(`.selectionArea--grid--box${numb} p`)
-  return getP.innerText = food[numb2].recipe.label
+  return getP.innerText = food[numb2].title
 }
 
 let TurnOnRandImageByCounter = false
 async function getImagesLabel(){
-    let pizzaHits = await returnFoodAPI("pizza")
-    let pastaHits = await returnFoodAPI("pasta")
-    let burgerHits = await returnFoodAPI("burger")
-    let soupHits = await returnFoodAPI("soup")
-    let saladHits = await returnFoodAPI("salad")
-    let breadHits = await returnFoodAPI("bread")
+    let pizzaResults = await returnFoodAPI("pizza")
+    let pastaResults = await returnFoodAPI("pasta")
+    let burgerResults = await returnFoodAPI("burger")
+    let soupResults = await returnFoodAPI("soup")
+    let saladResults = await returnFoodAPI("salad")
+    let breadResults = await returnFoodAPI("bread")
 
     let randNum = Math.floor(Math.random()*10)+1
-    let number = 2
+    let number = 1
     if(TurnOnRandImageByCounter == true){
       number = randNum
     }
 
-    getBoxNumberIMG(1,pizzaHits,number)
-    getInnerPTag(1,pizzaHits,number)
+    getBoxNumberIMG(1,pizzaResults,number)
+    getInnerPTag(1,pizzaResults,number)
 
-    getBoxNumberIMG(2,pastaHits,number)
-    getInnerPTag(2,pastaHits,number)
+    getBoxNumberIMG(2,pastaResults,number)
+    getInnerPTag(2,pastaResults,number)
 
-    getBoxNumberIMG(3,burgerHits,number)
-    getInnerPTag(3,burgerHits,number)
+    getBoxNumberIMG(3,burgerResults,number)
+    getInnerPTag(3,burgerResults,number)
 
-    getBoxNumberIMG(4,soupHits,number)
-    getInnerPTag(4,soupHits,number)
+    getBoxNumberIMG(4,soupResults,number)
+    getInnerPTag(4,soupResults,number)
 
-    getBoxNumberIMG(5,saladHits,number)
-    getInnerPTag(5,saladHits,number)
+    getBoxNumberIMG(5,saladResults,number)
+    getInnerPTag(5,saladResults,number)
 
-    getBoxNumberIMG(6,breadHits,number)
-    getInnerPTag(6,breadHits,number)
+    getBoxNumberIMG(6,breadResults,number)
+    getInnerPTag(6,breadResults,number)
 
 }
 getImagesLabel()
