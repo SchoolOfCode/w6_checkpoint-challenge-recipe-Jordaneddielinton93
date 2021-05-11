@@ -252,9 +252,10 @@ main .counter--numbers {
   background-color: #525252;
 }
 
-main .counter--numbers h3 {
+main .counter--numbers-text {
   text-align: center;
   background-color: white;
+  height: 15%;
 }
 
 main .counter--numbers--container {
@@ -270,6 +271,7 @@ main .counter--numbers--container {
   width: 100%;
   height: 70%;
   font-size: 2rem;
+  color: white;
 }
 
 main .counter--right {
@@ -383,6 +385,10 @@ main .FoodArea--box--middleleft--searchArea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+main .FoodArea--box--middleleft--searchArea-limit {
+  display: none;
 }
 
 main .FoodArea--box--middleleft--searchArea input {

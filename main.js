@@ -61,7 +61,7 @@ slideLeftButton.addEventListener("click",()=>{
 let getMinuteNumber = document.getElementById("middle-Counter")
 let getSecoundsNumber = document.getElementById("right-Counter")
 // Minute number countdown
-let MinuteCountDown = 4
+let MinuteCountDown = 1
 // Secounds number countdown
 let SecoundsCountDown = 60
 // once both hit 0 stop the timer
@@ -70,7 +70,9 @@ let CountDownTimer = setInterval(()=>{
   SecoundsCountDown = Math.floor(SecoundsCountDown-1)
   getSecoundsNumber.innerText = SecoundsCountDown
   if(MinuteCountDown == 0 && SecoundsCountDown == 0){
-    clearInterval(CountDownTimer)
+    MinuteCountDown = 1
+    TurnOnRandImageByCounter = true
+    getImagesLabel()
   }
   if(SecoundsCountDown == 0){
     SecoundsCountDown = 59
@@ -165,57 +167,70 @@ function getsavedRecipes(label,url){
 }
 // if the images do not load due to server limit
 function imageReloader(){
+  let removeSearchBar = document.querySelector("#food-input")
+  removeSearchBar.style.display = "none"
   console.log("YOU HAVE REQUESTED TO MANY TIMES THE SERVER LIMIT IS 10 REQUESTS PER MINUTE IT WILL NOW RELOAD THE REQUEST IN 1 MINUTE"),reloader = true
   if(reloader == true)
     setTimeout(()=>{
       getImagesLabel()
-      console.log("tester")
+      removeSearchBar.style.display = "flexbox"
+      console.log("reloading now :)")
       reloader = false
     },68000)
 }
 
 
+
+
+
 async function returnFoodAPI(food){
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)
+  let response = await fetch(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=97c4b636572c4da8bccf250ccd4fbacb&query=${food}`).catch(imageReloader)
   data = await response.json()
-  
-  return data.hits
+  return data.results
 }
 // this was me just practising callback functions i understand they are outdated and bad practice✔️
 // use aysnc func to refactor the callbacks ✔️
 function getBoxNumberIMG(numb,food,numb2){
   let getbox = document.querySelector(`.selectionArea--grid--box${numb}`)
-  return getbox.style.backgroundImage = `URL(${food[numb2].recipe.image})`
+  return getbox.style.backgroundImage = `URL(${food[numb2].image})`
 }
-function getInnerPTag(numb,numb2,food){
+function getInnerPTag(numb,food,numb2){
   let getP = document.querySelector(`.selectionArea--grid--box${numb} p`)
-  return getP.innerText = food[numb2].recipe.label
+  return getP.innerText = food[numb2].title
 }
+
+let TurnOnRandImageByCounter = false
 async function getImagesLabel(){
-    let pizzaHits = await returnFoodAPI("pizza")
-    let pastaHits = await returnFoodAPI("pasta")
-    let burgerHits = await returnFoodAPI("burger")
-    let soupHits = await returnFoodAPI("soup")
-    let saladHits = await returnFoodAPI("salad")
-    let breadHits = await returnFoodAPI("bread")
+    let pizzaResults = await returnFoodAPI("pizza")
+    let pastaResults = await returnFoodAPI("pasta")
+    let burgerResults = await returnFoodAPI("burger")
+    let soupResults = await returnFoodAPI("soup")
+    let saladResults = await returnFoodAPI("salad")
+    let breadResults = await returnFoodAPI("bread")
 
-    getBoxNumberIMG(1,pizzaHits,2)
-    getInnerPTag(1,2,pizzaHits)
+    let randNum = Math.floor(Math.random()*10)+1
+    let number = 1
+    if(TurnOnRandImageByCounter == true){
+      number = randNum
+    }
 
-    getBoxNumberIMG(2,pastaHits,2)
-    getInnerPTag(2,2,pastaHits)
+    getBoxNumberIMG(1,pizzaResults,number)
+    getInnerPTag(1,pizzaResults,number)
 
-    getBoxNumberIMG(3,burgerHits,2)
-    getInnerPTag(3,2,burgerHits)
+    getBoxNumberIMG(2,pastaResults,number)
+    getInnerPTag(2,pastaResults,number)
 
-    getBoxNumberIMG(4,soupHits,2)
-    getInnerPTag(4,2,soupHits)
+    getBoxNumberIMG(3,burgerResults,number)
+    getInnerPTag(3,burgerResults,number)
 
-    getBoxNumberIMG(5,saladHits,3)
-    getInnerPTag(5,3,saladHits)
+    getBoxNumberIMG(4,soupResults,number)
+    getInnerPTag(4,soupResults,number)
 
-    getBoxNumberIMG(6,breadHits,2)
-    getInnerPTag(6,2,breadHits)
+    getBoxNumberIMG(5,saladResults,number)
+    getInnerPTag(5,saladResults,number)
+
+    getBoxNumberIMG(6,breadResults,number)
+    getInnerPTag(6,breadResults,number)
 
 }
 getImagesLabel()
