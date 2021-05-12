@@ -242,6 +242,7 @@ main{
     width: 100%;
     background : url(/images/dust.jpg)no-repeat;
     background-size: cover;
+    background-position: center;
     font-size: 1.3rem;
     
     &--box{
@@ -289,9 +290,6 @@ main{
           @include gridborder();
           overflow: auto;
           & tr td:nth-child(1){
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 20px;
-            border: thin solid red;
             width: 30%;
           }
           & tr td:nth-child(2){
@@ -464,7 +462,7 @@ main{
       }
     }
   }
-  .drinksArea{
+  .photoArea{
     height: 95vh;
     width: 100%;
     &--block{
@@ -477,41 +475,51 @@ main{
       "box5 box5 box6";
       width: 100%;
       height: 100%;
-      background:url(/images/undraw_having_fun_iais.png)no-repeat;
+      background:url(/images/images.png)no-repeat;
       background-size: cover;
       background-position: center;
-      & .beer{
-        object-fit: cover;
-        opacity: 0.3;
-        &:hover{
-          opacity: 1;
+     
+      @mixin boxs {
+        @include gridborder();
+        &-topbottom{
+          height: 50%;
+          h1{
+            text-align: center;
+            font-size: 1.5rem;
+          }
+          & .beer{
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            object-fit: cover;
+            max-height: 100%;
+            min-height: 100%;
+            min-width: 100%;
+            max-width: 100%;
+            opacity: 0.3;
+            &:hover{
+              opacity: 1;
+            }
+          }
         }
       }
-      &-box1{
+      &--box1{
         grid-area: box1;
         font-size: 5rem;
         text-align: center;
       }
-      &-box2{
+      &--box2{
         grid-area: box2;
-        object-fit: contain;
-        @include gridborder()
-
+        @include boxs()
       }
-      &-box3{
-        grid-area: box3;
-        object-fit: contain;
-        @include gridborder()
-
+      &--box3{
+        @include boxs()
       }
-      &-box4{
-        grid-area: box4;
-        object-fit: contain;
-        @include gridborder()
+      &--box4{
+        @include boxs()
       }
-      &-box5{
+      &--box5{
         grid-area: box5;
-        @include gridborder()
+        @include gridborder();
         & input{
           width: 100%;
           height: 50%;
@@ -519,16 +527,22 @@ main{
           font-size: 2rem;
         }
       }
-      &-box6{
+      &--box6{
         grid-area: box6;
-        @include gridborder()
+        @include gridborder();
         & input{
           width: 100%;
           height: 50%;
           text-align: center;
-          background-color:red ;
+          border-radius: 20px;
+          background-color:#FA80AB ;
           font-size: 2rem;
           color: white;
+          transition: 1s;
+          &:hover{
+            background-color: red;
+            transition: 1s;
+          }
         }
       }
     }

@@ -176,10 +176,6 @@ function imageReloader(){
     },68000)
 }
 
-
-
-
-
 async function returnFoodAPI(food){
   let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)//.catch(imageReloader)
   data = await response.json()
@@ -250,17 +246,23 @@ async function fetchPhotos() {
   return data.photos.results
 }
 
-
+function getQuery(selector){
+  return document.querySelector(`${selector}`)
+}
 async function getPhotos(){
   objectData = await fetchPhotos()
   console.log(objectData)
-  let leftBoxIMG = document.querySelector(".drinksArea--block-box2 img")
-  let middBoxIMG = document.querySelector(".drinksArea--block-box3 img")
-  let righBoxIMG = document.querySelector(".drinksArea--block-box4 img")
 
-  leftBoxIMG.src = objectData[0].urls.small
-  middBoxIMG.src = objectData[1].urls.small
-  righBoxIMG.src = objectData[2].urls.small
+  getQuery(".photoArea--block--box2 img").src = objectData[0].urls.small
+  getQuery(".photoArea--block--box2 h1").innerText = objectData[0].alt_description
+
+  getQuery(".photoArea--block--box3 img").src = objectData[1].urls.small
+  getQuery(".photoArea--block--box3 h1").innerText = objectData[1].alt_description
+
+  getQuery(".photoArea--block--box4 img").src = objectData[2].urls.small
+  getQuery(".photoArea--block--box4 h1").innerText = objectData[2].alt_description
+  
+
 }
 getPhotos()
 
