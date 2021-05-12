@@ -230,8 +230,37 @@ async function getImagesLabel(){
     getInnerPTag(6,breadResults,number)
 
 }
-getImagesLabel()
+// getImagesLabel()
 
 
+const APP_KEY = "rI1jjxNbYiJn2GINSQNujhjjLaPQePNMOb-l2s6Nlps";
+const SecretKey = "uVRhs0UUaJEUUzksrQ5OYvtDoa9o-i06jWybgNN0DPQ"
+const search = "alcohol"
 
+async function fetchPhotos() {
+  let response = await fetch (`https://api.unsplash.com/search?query=${search}/?client_id=${APP_KEY}`,{
+    headers:{
+      "Accept-Version": "v1",
+      "Authorization": "Client-ID rI1jjxNbYiJn2GINSQNujhjjLaPQePNMOb-l2s6Nlps"
+    }
+  })
+  let data = await response.json()
+  
+  //iterate(forloop)through all of the recipes 
+  return data.photos.results
+}
+
+
+async function getPhotos(){
+  objectData = await fetchPhotos()
+  console.log(objectData)
+  let leftBoxIMG = document.querySelector(".drinksArea--block-box2 img")
+  let middBoxIMG = document.querySelector(".drinksArea--block-box3 img")
+  let righBoxIMG = document.querySelector(".drinksArea--block-box4 img")
+
+  leftBoxIMG.src = objectData[0].urls.small
+  middBoxIMG.src = objectData[1].urls.small
+  righBoxIMG.src = objectData[2].urls.small
+}
+getPhotos()
 

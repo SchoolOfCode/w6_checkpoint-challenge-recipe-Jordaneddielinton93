@@ -81,6 +81,7 @@ body{
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
+    
     & input{
       display: flexbox;
       width: 200px;
@@ -89,6 +90,16 @@ body{
       background-color:rgb(167, 167, 167);
       &:hover{
         background-color: white;
+      }
+      &:nth-child(3){
+        background-color: red;
+        color: white;
+        height: 45px;
+        font-size: 1.5rem;
+        &:hover{
+          background-color: rgb(255, 72, 72);
+          font-size: 1.6rem;
+        }
       }
       &:nth-child(4){
         background-color: red;
@@ -124,6 +135,9 @@ main{
   .starterArea{
     height: 95vh;
     width: 100%;
+    & img{
+      position: absolute;
+    }
     &--template{
       display: flex;
       height: 100%;
@@ -413,7 +427,7 @@ main{
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       width: 100%;
-      height: 90%;
+      height: 100%;
       & .boxs{
           display: flexbox;
           width: 100%;
@@ -447,6 +461,75 @@ main{
       }
       &--box6{
         @include boxNumbStyles();
+      }
+    }
+  }
+  .drinksArea{
+    height: 95vh;
+    width: 100%;
+    &--block{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 5fr 1fr;
+      grid-template-areas: 
+      "box1 box1 box1"
+      "box2 box3 box4"
+      "box5 box5 box6";
+      width: 100%;
+      height: 100%;
+      background:url(/images/undraw_having_fun_iais.png)no-repeat;
+      background-size: cover;
+      background-position: center;
+      & .beer{
+        object-fit: cover;
+        opacity: 0.3;
+        &:hover{
+          opacity: 1;
+        }
+      }
+      &-box1{
+        grid-area: box1;
+        font-size: 5rem;
+        text-align: center;
+      }
+      &-box2{
+        grid-area: box2;
+        object-fit: contain;
+        @include gridborder()
+
+      }
+      &-box3{
+        grid-area: box3;
+        object-fit: contain;
+        @include gridborder()
+
+      }
+      &-box4{
+        grid-area: box4;
+        object-fit: contain;
+        @include gridborder()
+      }
+      &-box5{
+        grid-area: box5;
+        @include gridborder()
+        & input{
+          width: 100%;
+          height: 50%;
+          text-align: center;
+          font-size: 2rem;
+        }
+      }
+      &-box6{
+        grid-area: box6;
+        @include gridborder()
+        & input{
+          width: 100%;
+          height: 50%;
+          text-align: center;
+          background-color:red ;
+          font-size: 2rem;
+          color: white;
+        }
       }
     }
   }
