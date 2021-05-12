@@ -72,7 +72,7 @@ let CountDownTimer = setInterval(()=>{
   if(MinuteCountDown == 0 && SecoundsCountDown == 0){
     MinuteCountDown = 1
     TurnOnRandImageByCounter = true
-    // getImagesLabel()
+    getImagesLabel()
   }
   if(SecoundsCountDown == 0){
     SecoundsCountDown = 59
@@ -170,7 +170,7 @@ function imageReloader(){
   console.log("YOU HAVE REQUESTED TO MANY TIMES THE SERVER LIMIT IS 10 REQUESTS PER MINUTE IT WILL NOW RELOAD THE REQUEST IN 1 MINUTE"),reloader = true
   if(reloader == true)
     setTimeout(()=>{
-      // getImagesLabel()
+      getImagesLabel()
       console.log("reloading now :)")
       reloader = false
     },68000)
@@ -230,7 +230,7 @@ async function getImagesLabel(){
     getInnerPTag(6,breadResults,number)
 
 }
-// getImagesLabel()
+getImagesLabel()
 
 
 const APP_KEY = "rI1jjxNbYiJn2GINSQNujhjjLaPQePNMOb-l2s6Nlps";
