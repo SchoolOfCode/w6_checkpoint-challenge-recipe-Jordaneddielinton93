@@ -24,6 +24,7 @@ function wait4secoundsThenCallFood(){
 function wait4secoundsThenCallPhotos(){
   setTimeout(() => {
     IteratePhotosRemoveHtml()
+    movingLeaf()
   }, 10000);
 }
 
@@ -156,7 +157,7 @@ let CountDownTimer = setInterval(()=>{
   if(MinuteCountDown == 0 && SecoundsCountDown == 0){
     MinuteCountDown = 1
     TurnOnRandImageByCounter = true
-    getImagesLabel()
+    getImagesLabel()<<<<<<<<<<<<turn off
   }
   if(SecoundsCountDown == 0){
     SecoundsCountDown = 59
@@ -361,3 +362,52 @@ searchButton.addEventListener("click",checkInput)
 
 getPhotos("wine")//<<<<<<<<<<<<<<<<<<<<<turn off api
 
+let leaf = getQuery(".leaf")
+let leafTop = 0
+let leafLeft = 0 
+let leafRight = 0
+
+let leaf1 = getQuery(".leaf1")
+let leaf1Top = 0
+let leaf1Left = 0 
+let leaf1Right = 0
+
+function movingLeaf(){
+  
+  movingleafInterval = setInterval(() => {
+    leaf.style.top = `${leafTop}px`
+    leaf.style.left = `${leafLeft}px`
+    leaf.style.right = `${leafRight}px`
+    leaf.style.transform = `rotate(${leafTop}deg)`
+    leafLeft++
+    leafTop-=1
+    leafTop+=2
+
+    leaf1.style.top = `${leaf1Top}px`
+    leaf1.style.left = `${leaf1Left}px`
+    leaf1.style.right = `${leaf1Right}px`
+    leaf1.style.transform = `rotate(${leafTop}deg)`
+    leaf1Left++
+    leaf1Top--
+    leaf1Top+=3
+    if(leafTop > 1000){
+      let randNumb = Math.floor(Math.random()*600)
+      let randNumb1 = Math.floor(Math.random()*-200)
+
+      leafTop = randNumb
+      leafLeft = randNumb
+      leafRight = randNumb
+
+      leaf1Top = randNumb1
+      leaf1Left = randNumb1
+      leaf1Right = randNumb1
+
+
+      
+      clearInterval(movingleafInterval)
+
+
+    }
+  }, 10);
+}
+movingLeaf()

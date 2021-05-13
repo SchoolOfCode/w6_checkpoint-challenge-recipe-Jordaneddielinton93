@@ -798,4 +798,43 @@ main .photoArea--block--box6 input:hover {
 main .bottom-nav-space {
   height: 60px;
 }
+
+main .leaf {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100px;
+  width: 100px;
+  background: url(/images/leaf1.png) no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.5;
+}
+
+main .leaf:hover {
+  opacity: 1;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+main .leaf1 {
+  position: fixed;
+  top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100px;
+  width: 100px;
+  background: url(/images/leaf1.png) no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.5;
+}
+
+main .leaf1:hover {
+  opacity: 1;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
 /*# sourceMappingURL=styles.css.map */

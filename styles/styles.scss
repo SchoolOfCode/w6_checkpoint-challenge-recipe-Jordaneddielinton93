@@ -554,6 +554,36 @@ main{
   }
   .bottom-nav-space{
     height: 60px;
+    
+  }
+  .leaf{
+    position: fixed;
+    display: flex;
+    height: 100px;
+    width: 100px;
+    background: url(/images/leaf1.png)no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.5;
+    &:hover{
+      opacity: 1;
+      cursor: grab;
+    }
+    &1{
+      position: fixed;
+      top: 20px;
+      display: flex;
+      height: 100px;
+      width: 100px;
+      background: url(/images/leaf1.png)no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.5;
+      &:hover{
+        opacity: 1;
+        cursor: grab;
+      }
+    }
   }
 }
 
