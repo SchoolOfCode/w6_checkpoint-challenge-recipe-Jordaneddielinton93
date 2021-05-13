@@ -157,7 +157,7 @@ let CountDownTimer = setInterval(()=>{
   if(MinuteCountDown == 0 && SecoundsCountDown == 0){
     MinuteCountDown = 1
     TurnOnRandImageByCounter = true
-    getImagesLabel()<<<<<<<<<<<<turn off
+    getImagesLabel() //<<<<<<<<<<<<turn off
   }
   if(SecoundsCountDown == 0){
     SecoundsCountDown = 59
