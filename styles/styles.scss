@@ -240,7 +240,7 @@ main{
   .FoodArea{
     height: 100vh;
     width: 100%;
-    background : url(/images/dust.jpg)no-repeat;
+    background : url(/images/woodtop.jpg)no-repeat;
     background-size: cover;
     background-position: center;
     font-size: 1.3rem;
@@ -251,7 +251,7 @@ main{
       height: 90%;
       margin:auto;
       background-color: rgba(155, 155, 155, 0) ;
-      border: thick solid $lightgray;
+      border: thick solid white;
       border-radius: 20px;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 5fr 1fr 5fr;
@@ -262,12 +262,12 @@ main{
       &--topleft{
         display: flex;
         grid-area: box1;
-        @include gridborder();
+        
         justify-content: center;
         border-radius: 20px;
         & #apiImage{
-          border-left: $darkgray thick solid;
-          border-right: $darkgray thick solid;
+          border-left: white thick solid;
+          border-right: white thick solid;
           display: flexbox;
           object-fit: cover;
           height: 100%;
@@ -280,6 +280,8 @@ main{
         flex-direction: column;
         &--label{
           text-align:center;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
           width: 100%;
           height: 20%;
           background-color:$lightgray;
@@ -350,7 +352,7 @@ main{
         width: 100%;
         height: 100%;
         overflow: auto;
-        @include gridborder();
+        
         &-saveRecipe{
           text-align: center;
           background-color:$lightgray;
@@ -363,10 +365,15 @@ main{
 
           & tr td:nth-child(1){
             border: thin solid red;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
             width: 40%;
           }
           & tr td:nth-child(2){
             border: thin solid red;
+            border: thin solid red;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
             width: 60%;
             text-align: center;
             overflow: hidden;
@@ -377,7 +384,7 @@ main{
         display: flex;
         flex-direction: column;
         grid-area: box4;
-        @include gridborder();
+        
         
         & h1{
           text-align:center;
@@ -418,12 +425,12 @@ main{
   .selectionArea{
     display: flexbox;
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     background-color: $darkgray;
     &--grid{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 1fr;
       width: 100%;
       height: 100%;
       & .boxs{
@@ -451,15 +458,6 @@ main{
       &--box3{
         @include boxNumbStyles();
       }
-      &--box4{
-        @include boxNumbStyles();
-      }
-      &--box5{
-        @include boxNumbStyles();
-      }
-      &--box6{
-        @include boxNumbStyles();
-      }
     }
   }
   .photoArea{
@@ -475,7 +473,7 @@ main{
       "box5 box5 box6";
       width: 100%;
       height: 100%;
-      background:url(/images/images.png)no-repeat;
+      background:url(/images/woodbottom.jpg)no-repeat;
       background-size: cover;
       background-position: center;
      
@@ -487,7 +485,7 @@ main{
             text-align: center;
             font-size: 1.5rem;
           }
-          & .beer{
+          & img{
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
             object-fit: cover;
@@ -495,10 +493,6 @@ main{
             min-height: 100%;
             min-width: 100%;
             max-width: 100%;
-            opacity: 0.3;
-            &:hover{
-              opacity: 1;
-            }
           }
         }
       }
@@ -520,19 +514,22 @@ main{
       &--box5{
         grid-area: box5;
         @include gridborder();
+        height: 50%;
         & input{
           width: 100%;
-          height: 50%;
+          height: 100%;
           text-align: center;
+          border-radius: 20px;
           font-size: 2rem;
         }
       }
       &--box6{
         grid-area: box6;
         @include gridborder();
+        height: 50%;
         & input{
           width: 100%;
-          height: 50%;
+          height: 100%;
           text-align: center;
           border-radius: 20px;
           background-color:#FA80AB ;
@@ -546,6 +543,9 @@ main{
         }
       }
     }
+  }
+  .bottom-nav-space{
+    height: 65px;
   }
 }
 

@@ -300,7 +300,7 @@ main .counter--right {
 main .FoodArea {
   height: 100vh;
   width: 100%;
-  background: url(/images/dust.jpg) no-repeat;
+  background: url(/images/woodtop.jpg) no-repeat;
   background-size: cover;
   background-position: center;
   font-size: 1.3rem;
@@ -313,7 +313,7 @@ main .FoodArea--box {
   height: 90%;
   margin: auto;
   background-color: rgba(155, 155, 155, 0);
-  border: thick solid #525252;
+  border: thick solid white;
   border-radius: 20px;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
@@ -330,9 +330,6 @@ main .FoodArea--box--topleft {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: box1;
-  border: whitesmoke thin solid;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -340,8 +337,8 @@ main .FoodArea--box--topleft {
 }
 
 main .FoodArea--box--topleft #apiImage {
-  border-left: black thick solid;
-  border-right: black thick solid;
+  border-left: white thick solid;
+  border-right: white thick solid;
   display: flexbox;
   -o-object-fit: cover;
      object-fit: cover;
@@ -366,6 +363,8 @@ main .FoodArea--box--topright {
 
 main .FoodArea--box--topright--label {
   text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   width: 100%;
   height: 20%;
   background-color: #525252;
@@ -456,9 +455,6 @@ main .FoodArea--box--bottomleft {
   width: 100%;
   height: 100%;
   overflow: auto;
-  border: whitesmoke thin solid;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
 }
 
 main .FoodArea--box--bottomleft-saveRecipe {
@@ -477,11 +473,16 @@ main .FoodArea--box--bottomleft-table {
 
 main .FoodArea--box--bottomleft-table tr td:nth-child(1) {
   border: thin solid red;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   width: 40%;
 }
 
 main .FoodArea--box--bottomleft-table tr td:nth-child(2) {
   border: thin solid red;
+  border: thin solid red;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   width: 60%;
   text-align: center;
   overflow: hidden;
@@ -498,9 +499,6 @@ main .FoodArea--box--bottomright {
   -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: box4;
-  border: whitesmoke thin solid;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
 }
 
 main .FoodArea--box--bottomright h1 {
@@ -529,7 +527,7 @@ main .FoodArea--box--bottomright-ingrediantslist {
 main .selectionArea {
   display: flexbox;
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   background-color: black;
 }
 
@@ -538,8 +536,8 @@ main .selectionArea--grid {
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
   width: 100%;
   height: 100%;
 }
@@ -619,60 +617,6 @@ main .selectionArea--grid--box3 {
   color: white;
 }
 
-main .selectionArea--grid--box4 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-color: white;
-  background-size: cover;
-  color: white;
-}
-
-main .selectionArea--grid--box5 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-color: white;
-  background-size: cover;
-  color: white;
-}
-
-main .selectionArea--grid--box6 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-color: white;
-  background-size: cover;
-  color: white;
-}
-
 main .photoArea {
   height: 95vh;
   width: 100%;
@@ -688,7 +632,7 @@ main .photoArea--block {
       grid-template-areas: "box1 box1 box1" "box2 box3 box4" "box5 box5 box6";
   width: 100%;
   height: 100%;
-  background: url(/images/images.png) no-repeat;
+  background: url(/images/woodbottom.jpg) no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -720,7 +664,7 @@ main .photoArea--block--box2-topbottom h1 {
   font-size: 1.5rem;
 }
 
-main .photoArea--block--box2-topbottom .beer {
+main .photoArea--block--box2-topbottom img {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   -o-object-fit: cover;
@@ -729,11 +673,6 @@ main .photoArea--block--box2-topbottom .beer {
   min-height: 100%;
   min-width: 100%;
   max-width: 100%;
-  opacity: 0.3;
-}
-
-main .photoArea--block--box2-topbottom .beer:hover {
-  opacity: 1;
 }
 
 main .photoArea--block--box3 {
@@ -751,7 +690,7 @@ main .photoArea--block--box3-topbottom h1 {
   font-size: 1.5rem;
 }
 
-main .photoArea--block--box3-topbottom .beer {
+main .photoArea--block--box3-topbottom img {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   -o-object-fit: cover;
@@ -760,11 +699,6 @@ main .photoArea--block--box3-topbottom .beer {
   min-height: 100%;
   min-width: 100%;
   max-width: 100%;
-  opacity: 0.3;
-}
-
-main .photoArea--block--box3-topbottom .beer:hover {
-  opacity: 1;
 }
 
 main .photoArea--block--box4 {
@@ -782,7 +716,7 @@ main .photoArea--block--box4-topbottom h1 {
   font-size: 1.5rem;
 }
 
-main .photoArea--block--box4-topbottom .beer {
+main .photoArea--block--box4-topbottom img {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   -o-object-fit: cover;
@@ -791,11 +725,6 @@ main .photoArea--block--box4-topbottom .beer {
   min-height: 100%;
   min-width: 100%;
   max-width: 100%;
-  opacity: 0.3;
-}
-
-main .photoArea--block--box4-topbottom .beer:hover {
-  opacity: 1;
 }
 
 main .photoArea--block--box5 {
@@ -806,12 +735,14 @@ main .photoArea--block--box5 {
   border: whitesmoke thin solid;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
+  height: 50%;
 }
 
 main .photoArea--block--box5 input {
   width: 100%;
-  height: 50%;
+  height: 100%;
   text-align: center;
+  border-radius: 20px;
   font-size: 2rem;
 }
 
@@ -822,11 +753,12 @@ main .photoArea--block--box6 {
   border: whitesmoke thin solid;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
+  height: 50%;
 }
 
 main .photoArea--block--box6 input {
   width: 100%;
-  height: 50%;
+  height: 100%;
   text-align: center;
   border-radius: 20px;
   background-color: #FA80AB;
@@ -840,5 +772,9 @@ main .photoArea--block--box6 input:hover {
   background-color: red;
   -webkit-transition: 1s;
   transition: 1s;
+}
+
+main .bottom-nav-space {
+  height: 65px;
 }
 /*# sourceMappingURL=styles.css.map */

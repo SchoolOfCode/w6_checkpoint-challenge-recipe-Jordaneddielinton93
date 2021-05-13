@@ -20,6 +20,12 @@
   .reservationArea {
     width: 100vw;
   }
+  .reservationArea input:nth-child(2) {
+    display: none;
+  }
+  .reservationArea select {
+    display: none;
+  }
   main .FoodArea--box {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -31,6 +37,7 @@
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     grid-area: box1;
+    background-color: rgba(255, 255, 255, 0.5);
   }
   main .FoodArea--box--topright {
     -ms-grid-row: 3;
@@ -75,11 +82,17 @@
     background-color: rgba(175, 175, 175, 0.6);
     overflow: auto;
   }
+  main .selectionArea {
+    height: 95vh;
+  }
   main .selectionArea--grid {
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
     -ms-grid-rows: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
+  }
+  main .photoArea--block--box1 p {
+    font-size: 3rem;
   }
 }
 
@@ -200,19 +213,22 @@
   main .FoodArea--box--topleft {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     grid-area: box1;
   }
   main .FoodArea--box--topright {
-    -ms-grid-row: 3;
+    -ms-grid-row: 2;
     -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     grid-area: box2;
   }
   main .FoodArea--box--topright h1 {
     font-size: 1rem;
   }
   main .FoodArea--box--middleleft {
-    -ms-grid-row: 2;
+    -ms-grid-row: 3;
     -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     grid-area: box3;
   }
   main .FoodArea--box--middleleft--searchArea {
@@ -249,6 +265,7 @@
   main .FoodArea--box--bottomleft {
     -ms-grid-row: 4;
     -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     grid-area: box4;
     overflow: hidden;
   }
@@ -261,12 +278,15 @@
   main .FoodArea--box--bottomright {
     display: none;
   }
+  main .selectionArea {
+    height: 150vh;
+  }
   main .selectionArea--grid {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    height: 100vh;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    height: 100%;
   }
   main .selectionArea--grid--box1 {
     background-position: center;
@@ -285,6 +305,58 @@
   }
   main .selectionArea--grid--box6 {
     background-position: center;
+  }
+  main .photoArea {
+    height: 200vh;
+  }
+  main .photoArea--block {
+    height: 100%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 0.3fr 1fr 1fr 1fr 0.1fr 0.1fr;
+        grid-template-rows: 0.3fr 1fr 1fr 1fr 0.1fr 0.1fr;
+        grid-template-areas: "box1 box1 " "box2 box2 " "box3 box3 " "box4 box4 " "box5 box5" "box6 box6";
+  }
+  main .photoArea--block--box1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: box1;
+    font-size: 2.5rem;
+  }
+  main .photoArea--block--box2 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: box2;
+  }
+  main .photoArea--block--box3 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: box3;
+  }
+  main .photoArea--block--box4 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: box4;
+  }
+  main .photoArea--block--box5 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: box5;
+    height: 100%;
+  }
+  main .photoArea--block--box6 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: box6;
+    height: 100%;
   }
 }
 /*# sourceMappingURL=Responsive.css.map */

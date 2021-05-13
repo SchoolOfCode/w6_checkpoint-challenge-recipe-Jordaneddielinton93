@@ -177,7 +177,7 @@ function imageReloader(){
 }
 
 async function returnFoodAPI(food){
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)//.catch(imageReloader)
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)
   data = await response.json()
   return data.hits
 }
@@ -197,9 +197,6 @@ async function getImagesLabel(){
     let pizzaResults = await returnFoodAPI("pizza")
     let pastaResults = await returnFoodAPI("pasta")
     let burgerResults = await returnFoodAPI("burger")
-    let soupResults = await returnFoodAPI("soup")
-    let saladResults = await returnFoodAPI("salad")
-    let breadResults = await returnFoodAPI("bread")
 
     let randNum = Math.floor(Math.random()*10)+1
     let number = 1
@@ -216,24 +213,14 @@ async function getImagesLabel(){
     getBoxNumberIMG(3,burgerResults,number)
     getInnerPTag(3,burgerResults,number)
 
-    getBoxNumberIMG(4,soupResults,number)
-    getInnerPTag(4,soupResults,number)
-
-    getBoxNumberIMG(5,saladResults,number)
-    getInnerPTag(5,saladResults,number)
-
-    getBoxNumberIMG(6,breadResults,number)
-    getInnerPTag(6,breadResults,number)
-
 }
 getImagesLabel()
 
 
 const APP_KEY = "rI1jjxNbYiJn2GINSQNujhjjLaPQePNMOb-l2s6Nlps";
 const SecretKey = "uVRhs0UUaJEUUzksrQ5OYvtDoa9o-i06jWybgNN0DPQ"
-const search = "alcohol"
 
-async function fetchPhotos() {
+async function fetchPhotos(search) {
   let response = await fetch (`https://api.unsplash.com/search?query=${search}/?client_id=${APP_KEY}`,{
     headers:{
       "Accept-Version": "v1",
@@ -249,20 +236,39 @@ async function fetchPhotos() {
 function getQuery(selector){
   return document.querySelector(`${selector}`)
 }
-async function getPhotos(){
-  objectData = await fetchPhotos()
+async function getPhotos(search){
+  objectData = await fetchPhotos(search)
   console.log(objectData)
 
   getQuery(".photoArea--block--box2 img").src = objectData[0].urls.small
   getQuery(".photoArea--block--box2 h1").innerText = objectData[0].alt_description
+  getQuery("#likes1").innerText = objectData[0].likes
+  getQuery("#download1").href = objectData[0].links.download
 
   getQuery(".photoArea--block--box3 img").src = objectData[1].urls.small
   getQuery(".photoArea--block--box3 h1").innerText = objectData[1].alt_description
+  getQuery("#likes2").innerText = objectData[1].likes
+  getQuery("#download2").href = objectData[0].links.download
 
   getQuery(".photoArea--block--box4 img").src = objectData[2].urls.small
   getQuery(".photoArea--block--box4 h1").innerText = objectData[2].alt_description
+  getQuery("#likes3").innerText = objectData[2].likes
+  getQuery("#download3").href = objectData[0].links.download_location
   
-
 }
-getPhotos()
+function checkInput(){
+  let searchValue = getQuery(".photoArea--block--box5-search").value
+  if(searchValue >=0){
+    console.log("please type a value before searching")
+  }else{
+    getPhotos(searchValue)
+  }
+}
+
+let searchButton = getQuery(".photoArea--block--box5-button")
+searchButton.addEventListener("click",checkInput)
+
+
+
+getPhotos("alcohol")
 
