@@ -1,3 +1,75 @@
+// 1. create a reworder
+// 2. use a setsInterval
+// 3. loop through each character in reverse
+// 4. delete each character
+// 5. when last character erased loop throught new word applying eachone
+let FOOD = ["F","O","O","D"]
+let PHOTOS = ["P","H","O","T","O","S"]
+let foodAppended = ""
+let photoAppended = ""
+let title1 = getQuery(".foodtitle1")
+let title2 = getQuery(".foodtitle2")
+let addOne = 0
+
+
+
+function wait4secounds(){
+  setTimeout(() => {
+    IterateFoodRemoveHtml()
+  }, 10000);
+}
+
+function IterateFoodAppendHtml(){
+
+  let loop = setInterval(() => {
+    foodAppended+= FOOD[addOne]
+    title1.innerText = foodAppended
+    if(addOne==3){
+      wait4secounds()
+      clearInterval(loop)
+    }
+    addOne++
+  },200);
+
+}
+
+function IterateFoodRemoveHtml (){
+  let loop = setInterval(() => {
+    foodAppended = foodAppended.slice(0,-1)
+
+    title1.innerText = foodAppended
+    
+    addOne--
+    if(addOne==0){
+      clearInterval(loop)
+      IterateFoodAppendHtml()
+    }
+  },200);
+}
+
+// function IteratePhotoAppendHtml(){
+
+//   let loop = setInterval(() => {
+//     photoAppended+= PHOTOS[addOne]
+//     title1.innerText = photoAppended
+//     if(addOne==3){
+      
+//       clearInterval(loop)
+//     }
+//     addOne++
+//   },200);
+
+// }
+
+
+
+IterateFoodAppendHtml()
+
+
+
+
+
+
 
 // 1. get images
 const sliderImages = [
@@ -177,7 +249,7 @@ function imageReloader(){
 }
 
 async function returnFoodAPI(food){
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)//.catch(imageReloader)
   data = await response.json()
   return data.hits
 }
