@@ -600,24 +600,35 @@ main .selectionArea--grid--box3 {
 }
 
 main .photoArea {
-  height: 95vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
   width: 100%;
-  margin-bottom: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  background: url(/images/woodbottom.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 main .photoArea--block {
   display: -ms-grid;
   display: grid;
+  border: white solid thick;
+  margin-top: 20px;
+  border-radius: 20px;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: 1fr 5fr 1fr;
       grid-template-rows: 1fr 5fr 1fr;
       grid-template-areas: "box1 box1 box1" "box2 box3 box4" "box5 box5 box6";
-  width: 100%;
-  height: 100%;
-  background: url(/images/woodbottom.jpg) no-repeat;
-  background-size: cover;
-  background-position: center;
+  width: 90%;
+  height: 90%;
 }
 
 main .photoArea--block--box1 {
@@ -627,6 +638,8 @@ main .photoArea--block--box1 {
   grid-area: box1;
   font-size: 5rem;
   text-align: center;
+  border-radius: 20px;
+  background-color: white;
 }
 
 main .photoArea--block--box2 {
@@ -742,7 +755,7 @@ main .photoArea--block--box5 {
   border: whitesmoke thin solid;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
-  height: 50%;
+  height: 100%;
 }
 
 main .photoArea--block--box5 input {
@@ -760,7 +773,7 @@ main .photoArea--block--box6 {
   border: whitesmoke thin solid;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.5);
-  height: 50%;
+  height: 100%;
 }
 
 main .photoArea--block--box6 input {
@@ -783,6 +796,6 @@ main .photoArea--block--box6 input:hover {
 }
 
 main .bottom-nav-space {
-  height: 85px;
+  height: 60px;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -453,22 +453,28 @@ main{
     }
   }
   .photoArea{
-    height: 95vh;
+    display: flex;
+    height: 100vh;
     width: 100%;
-    margin-bottom: 30px;
+    justify-content: center;
+    align-items: baseline;
+    background:url(/images/woodbottom.jpg)no-repeat;
+    background-size: cover;
+    background-position: center;
     &--block{
       display: grid;
+      border: white solid thick;
+      margin-top: 20px;
+      border-radius: 20px;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 5fr 1fr;
       grid-template-areas: 
       "box1 box1 box1"
       "box2 box3 box4"
       "box5 box5 box6";
-      width: 100%;
-      height: 100%;
-      background:url(/images/woodbottom.jpg)no-repeat;
-      background-size: cover;
-      background-position: center;
+      width: 90%;
+      height: 90%;
+      
      
       @mixin boxs {
         @include gridborder();
@@ -499,6 +505,8 @@ main{
         grid-area: box1;
         font-size: 5rem;
         text-align: center;
+        border-radius: 20px;
+        background-color: white;
       }
       &--box2{
         grid-area: box2;
@@ -513,7 +521,7 @@ main{
       &--box5{
         grid-area: box5;
         @include gridborder();
-        height: 50%;
+        height: 100%;
         & input{
           width: 100%;
           height: 100%;
@@ -525,7 +533,7 @@ main{
       &--box6{
         grid-area: box6;
         @include gridborder();
-        height: 50%;
+        height: 100%;
         & input{
           width: 100%;
           height: 100%;
@@ -545,7 +553,7 @@ main{
     }
   }
   .bottom-nav-space{
-    height: 85px;
+    height: 60px;
   }
 }
 

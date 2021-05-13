@@ -108,6 +108,7 @@ $lightgray:#525252;
       width: 100vw;
       &-h1{
         font-size: 1rem;
+        text-align: center;
       }
       &--ul{
         display: none;
@@ -276,12 +277,14 @@ $lightgray:#525252;
       }
     }
     .photoArea{
-      height: 200vh;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
       &--block{
         height: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr ;
-        grid-template-rows: 0.3fr 1fr 1fr 1fr 0.1fr 0.1fr;
+        grid-template-rows: 0.3fr 0.5fr 0.5fr 0.5fr 0.1fr 0.1fr;
         grid-template-areas: 
         "box1 box1 "
         "box2 box2 "
@@ -289,6 +292,12 @@ $lightgray:#525252;
         "box4 box4 "
         "box5 box5"
         "box6 box6";
+        & .pics{
+          max-height: 8px;
+          width: 100%;
+          object-fit: cover;
+          
+        }
         &--box1{
           grid-area: box1;
           font-size: 2.5rem;
@@ -304,13 +313,15 @@ $lightgray:#525252;
         }
         &--box5{
           grid-area: box5;
-          height: 100%;
         }
         &--box6{
           grid-area: box6;
-          height: 100%;
         }
+
       }
     }
+  }
+  & .bottom-nav-space{
+    height: 100px;
   }
 }
