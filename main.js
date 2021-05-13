@@ -112,7 +112,7 @@ function handleFoodChange() {
 
 // 4 get recipe searched for and fill in the info on screen (e:g images, ingrediants)
 async function fetchRecipe(food) {
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)//.catch(imageReloader)
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)
   let data = await response.json()
   let randNum = Math.floor(Math.random()*data.hits.length)
   console.log(data.hits[2].recipe)
@@ -264,11 +264,18 @@ function checkInput(){
     getPhotos(searchValue)
   }
 }
+let PhotoSearchEnterKey = getQuery(".photoArea--block--box5-search")
+PhotoSearchEnterKey.addEventListener("keydown",(e)=>{
 
+  if(e.key == "Enter"){
+    console.log("works")
+    checkInput()
+  }
+})
 let searchButton = getQuery(".photoArea--block--box5-button")
 searchButton.addEventListener("click",checkInput)
 
 
 
-getPhotos("alcohol")
+getPhotos("wine")
 
