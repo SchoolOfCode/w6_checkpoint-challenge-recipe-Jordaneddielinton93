@@ -602,6 +602,7 @@ main .selectionArea--grid--box3 {
 main .photoArea {
   height: 95vh;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 main .photoArea--block {
@@ -758,6 +759,6 @@ main .photoArea--block--box6 input:hover {
 }
 
 main .bottom-nav-space {
-  height: 65px;
+  height: 85px;
 }
 /*# sourceMappingURL=styles.css.map */

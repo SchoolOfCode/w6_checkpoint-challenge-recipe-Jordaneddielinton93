@@ -455,6 +455,7 @@ main{
   .photoArea{
     height: 95vh;
     width: 100%;
+    margin-bottom: 30px;
     &--block{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -538,7 +539,7 @@ main{
     }
   }
   .bottom-nav-space{
-    height: 65px;
+    height: 85px;
   }
 }
 

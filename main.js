@@ -61,20 +61,13 @@ function IterateFoodRemoveHtml (){
 
 // }
 
-
-
 IterateFoodAppendHtml()
-
-
-
-
-
 
 
 // 1. get images
 const sliderImages = [
-  {images:"url(/images/waiter.jpg)"},
-  {images:"url(/images/dogfetch.jpg)"},
+  {images:"url(/images/waiter.jpg)"}, 
+  {images:"url(/images/dogfetch-min.jpg)"},
   {images:"url(/images/resturant1.jpg)"}
 ]
 // 2. slide to the right function
@@ -249,7 +242,7 @@ function imageReloader(){
 }
 
 async function returnFoodAPI(food){
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)//.catch(imageReloader)
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)
   data = await response.json()
   return data.hits
 }
