@@ -478,6 +478,12 @@ main{
             text-align: center;
             font-size: 1.5rem;
           }
+          table{
+            width: 100%;
+            tr{
+              background-color: white;
+            }
+          }
           & img{
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;

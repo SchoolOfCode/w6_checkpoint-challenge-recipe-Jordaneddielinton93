@@ -1,65 +1,84 @@
-// 1. create a reworder
+// 1. create a re-worder
 // 2. use a setsInterval
 // 3. loop through each character in reverse
 // 4. delete each character
 // 5. when last character erased loop throught new word applying eachone
+function getQuery(selector){
+  return document.querySelector(`${selector}`)
+}
 let FOOD = ["F","O","O","D"]
 let PHOTOS = ["P","H","O","T","O","S"]
 let foodAppended = ""
 let photoAppended = ""
 let title1 = getQuery(".foodtitle1")
 let title2 = getQuery(".foodtitle2")
-let addOne = 0
+let foodAddOne = 0
+let photoAddOne = 0
 
-
-
-function wait4secounds(){
+function wait4secoundsThenCallFood(){
   setTimeout(() => {
     IterateFoodRemoveHtml()
   }, 10000);
 }
 
-function IterateFoodAppendHtml(){
+function wait4secoundsThenCallPhotos(){
+  setTimeout(() => {
+    IteratePhotosRemoveHtml()
+  }, 10000);
+}
 
+function IterateFoodAppendHtml(){
   let loop = setInterval(() => {
-    foodAppended+= FOOD[addOne]
+    foodAppended+= FOOD[foodAddOne]
     title1.innerText = foodAppended
-    if(addOne==3){
-      wait4secounds()
+    if(foodAddOne==3){
+      wait4secoundsThenCallFood()
       clearInterval(loop)
     }
-    addOne++
+    foodAddOne++
   },200);
 
 }
-
+// 
 function IterateFoodRemoveHtml (){
   let loop = setInterval(() => {
     foodAppended = foodAppended.slice(0,-1)
 
     title1.innerText = foodAppended
     
-    addOne--
-    if(addOne==0){
+    foodAddOne--
+    if(foodAddOne==0){
+      clearInterval(loop)
+      IteratePhotoAppendHtml()
+    }
+  },200);
+}
+
+function IteratePhotoAppendHtml(){
+
+  let loop = setInterval(() => {
+    photoAppended+= PHOTOS[photoAddOne]
+    title2.innerText = photoAppended
+    if(photoAddOne==5){
+      clearInterval(loop)
+      wait4secoundsThenCallPhotos()
+    }
+    photoAddOne++
+  },200);
+
+}
+
+function IteratePhotosRemoveHtml (){
+  let loop = setInterval(() => {
+    photoAppended = photoAppended.slice(0,-1)
+    title2.innerText = photoAppended
+    photoAddOne--
+    if(photoAddOne==0){
       clearInterval(loop)
       IterateFoodAppendHtml()
     }
   },200);
 }
-
-// function IteratePhotoAppendHtml(){
-
-//   let loop = setInterval(() => {
-//     photoAppended+= PHOTOS[addOne]
-//     title1.innerText = photoAppended
-//     if(addOne==3){
-      
-//       clearInterval(loop)
-//     }
-//     addOne++
-//   },200);
-
-// }
 
 IterateFoodAppendHtml()
 
@@ -177,7 +196,7 @@ function handleFoodChange() {
 
 // 4 get recipe searched for and fill in the info on screen (e:g images, ingrediants)
 async function fetchRecipe(food) {
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)//<<<<<<<<<<<<turn off api
   let data = await response.json()
   let randNum = Math.floor(Math.random()*data.hits.length)
   console.log(data.hits[2].recipe)
@@ -230,12 +249,12 @@ function getsavedRecipes(label,url){
   createTR.append(createTD1,createTD2)
   savedRecipe.append(createTR)
 }
-// if the images do not load due to server limit
+// if the images do not load, due to server limit
 function imageReloader(){
   console.log("YOU HAVE REQUESTED TO MANY TIMES THE SERVER LIMIT IS 10 REQUESTS PER MINUTE IT WILL NOW RELOAD THE REQUEST IN 1 MINUTE"),reloader = true
   if(reloader == true)
     setTimeout(()=>{
-      getImagesLabel()
+      getImagesLabel()  //<<<<<<<<<<<<<<<<<<<<<turn off api
       console.log("reloading now :)")
       reloader = false
     },68000)
@@ -247,7 +266,7 @@ async function returnFoodAPI(food){
   return data.hits
 }
 // this was me just practising callback functions i understand they are outdated and bad practice✔️
-// use aysnc func to refactor the callbacks ✔️
+// use aysnc func to refactor the callbacks 
 function getBoxNumberIMG(numb,food,numb2){
   let getbox = document.querySelector(`.selectionArea--grid--box${numb}`)
   return getbox.style.backgroundImage = `URL(${food[numb2].recipe.image})`
@@ -279,7 +298,7 @@ async function getImagesLabel(){
     getInnerPTag(3,burgerResults,number)
 
 }
-getImagesLabel()
+getImagesLabel()//<<<<<<<<<<<<<<<<<<<<<turn off api
 
 
 const APP_KEY = "rI1jjxNbYiJn2GINSQNujhjjLaPQePNMOb-l2s6Nlps";
@@ -298,9 +317,7 @@ async function fetchPhotos(search) {
   return data.photos.results
 }
 
-function getQuery(selector){
-  return document.querySelector(`${selector}`)
-}
+
 async function getPhotos(search){
   objectData = await fetchPhotos(search)
   console.log(objectData)
@@ -342,5 +359,5 @@ searchButton.addEventListener("click",checkInput)
 
 
 
-getPhotos("wine")
+getPhotos("wine")//<<<<<<<<<<<<<<<<<<<<<turn off api
 

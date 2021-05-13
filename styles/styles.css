@@ -647,6 +647,14 @@ main .photoArea--block--box2-topbottom h1 {
   font-size: 1.5rem;
 }
 
+main .photoArea--block--box2-topbottom table {
+  width: 100%;
+}
+
+main .photoArea--block--box2-topbottom table tr {
+  background-color: white;
+}
+
 main .photoArea--block--box2-topbottom img {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -673,6 +681,14 @@ main .photoArea--block--box3-topbottom h1 {
   font-size: 1.5rem;
 }
 
+main .photoArea--block--box3-topbottom table {
+  width: 100%;
+}
+
+main .photoArea--block--box3-topbottom table tr {
+  background-color: white;
+}
+
 main .photoArea--block--box3-topbottom img {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -697,6 +713,14 @@ main .photoArea--block--box4-topbottom {
 main .photoArea--block--box4-topbottom h1 {
   text-align: center;
   font-size: 1.5rem;
+}
+
+main .photoArea--block--box4-topbottom table {
+  width: 100%;
+}
+
+main .photoArea--block--box4-topbottom table tr {
+  background-color: white;
 }
 
 main .photoArea--block--box4-topbottom img {
