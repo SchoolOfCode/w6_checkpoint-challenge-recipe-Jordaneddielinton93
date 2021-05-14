@@ -658,6 +658,8 @@ main .photoArea--block--box2-topbottom {
 main .photoArea--block--box2-topbottom:nth-child(1) {
   background-size: cover;
   background-position: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 main .photoArea--block--box2-topbottom h1 {
@@ -697,6 +699,8 @@ main .photoArea--block--box3-topbottom {
 main .photoArea--block--box3-topbottom:nth-child(1) {
   background-size: cover;
   background-position: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 main .photoArea--block--box3-topbottom h1 {
@@ -736,6 +740,8 @@ main .photoArea--block--box4-topbottom {
 main .photoArea--block--box4-topbottom:nth-child(1) {
   background-size: cover;
   background-position: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 main .photoArea--block--box4-topbottom h1 {
