@@ -655,6 +655,11 @@ main .photoArea--block--box2-topbottom {
   height: 50%;
 }
 
+main .photoArea--block--box2-topbottom:nth-child(1) {
+  background-size: cover;
+  background-position: center;
+}
+
 main .photoArea--block--box2-topbottom h1 {
   text-align: center;
   font-size: 1.5rem;
@@ -689,6 +694,11 @@ main .photoArea--block--box3-topbottom {
   height: 50%;
 }
 
+main .photoArea--block--box3-topbottom:nth-child(1) {
+  background-size: cover;
+  background-position: center;
+}
+
 main .photoArea--block--box3-topbottom h1 {
   text-align: center;
   font-size: 1.5rem;
@@ -721,6 +731,11 @@ main .photoArea--block--box4 {
 
 main .photoArea--block--box4-topbottom {
   height: 50%;
+}
+
+main .photoArea--block--box4-topbottom:nth-child(1) {
+  background-size: cover;
+  background-position: center;
 }
 
 main .photoArea--block--box4-topbottom h1 {

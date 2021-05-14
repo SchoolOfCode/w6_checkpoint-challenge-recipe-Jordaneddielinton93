@@ -157,7 +157,7 @@ let CountDownTimer = setInterval(()=>{
   if(MinuteCountDown == 0 && SecoundsCountDown == 0){
     MinuteCountDown = 1
     TurnOnRandImageByCounter = true
-    getImagesLabel() //<<<<<<<<<<<<turn off
+    // getImagesLabel()<<<<<<<<<<<<turn off
   }
   if(SecoundsCountDown == 0){
     SecoundsCountDown = 59
@@ -197,7 +197,7 @@ function handleFoodChange() {
 
 // 4 get recipe searched for and fill in the info on screen (e:g images, ingrediants)
 async function fetchRecipe(food) {
-  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`).catch(imageReloader)//<<<<<<<<<<<<turn off api
+  let response = await fetch(`https://api.edamam.com/search?q=${food}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)//.catch(imageReloader)//<<<<<<<<<<<<turn off api
   let data = await response.json()
   let randNum = Math.floor(Math.random()*data.hits.length)
   console.log(data.hits[2].recipe)
@@ -255,7 +255,7 @@ function imageReloader(){
   console.log("YOU HAVE REQUESTED TO MANY TIMES THE SERVER LIMIT IS 10 REQUESTS PER MINUTE IT WILL NOW RELOAD THE REQUEST IN 1 MINUTE"),reloader = true
   if(reloader == true)
     setTimeout(()=>{
-      getImagesLabel()  //<<<<<<<<<<<<<<<<<<<<<turn off api
+      // getImagesLabel()  //<<<<<<<<<<<<<<<<<<<<<turn off api
       console.log("reloading now :)")
       reloader = false
     },68000)
@@ -299,7 +299,7 @@ async function getImagesLabel(){
     getInnerPTag(3,burgerResults,number)
 
 }
-getImagesLabel()//<<<<<<<<<<<<<<<<<<<<<turn off api
+// getImagesLabel()//<<<<<<<<<<<<<<<<<<<<<turn off api
 
 
 const APP_KEY = "rI1jjxNbYiJn2GINSQNujhjjLaPQePNMOb-l2s6Nlps";
@@ -323,17 +323,17 @@ async function getPhotos(search){
   objectData = await fetchPhotos(search)
   console.log(objectData)
 
-  getQuery(".photoArea--block--box2 img").src = objectData[0].urls.small
+  getQuery("#photo1").style.backgroundImage = `URL(${objectData[0].urls.small})`
   getQuery(".photoArea--block--box2 h1").innerText = objectData[0].alt_description
   getQuery("#likes1").innerText = objectData[0].likes
   getQuery("#download1").href = objectData[0].links.download
 
-  getQuery(".photoArea--block--box3 img").src = objectData[1].urls.small
+  getQuery("#photo2").style.backgroundImage = `URL(${objectData[1].urls.small})`
   getQuery(".photoArea--block--box3 h1").innerText = objectData[1].alt_description
   getQuery("#likes2").innerText = objectData[1].likes
   getQuery("#download2").href = objectData[0].links.download
 
-  getQuery(".photoArea--block--box4 img").src = objectData[2].urls.small
+  getQuery("#photo3").style.backgroundImage = `URL(${objectData[2].urls.small})`
   getQuery(".photoArea--block--box4 h1").innerText = objectData[2].alt_description
   getQuery("#likes3").innerText = objectData[2].likes
   getQuery("#download3").href = objectData[0].links.download_location
