@@ -24,7 +24,6 @@ function wait4secoundsThenCallFood(){
 function wait4secoundsThenCallPhotos(){
   setTimeout(() => {
     IteratePhotosRemoveHtml()
-    movingLeaf()
   }, 10000);
 }
 
@@ -98,6 +97,7 @@ function sliderRight(){
   imgCounter++
   if(imgCounter > sliderImages.length-1){
     imgCounter = 0
+    movingLeaf()
   }
 }
 // 3. slide to the left function
@@ -114,6 +114,8 @@ function sliderLeft(){
     console.log("0")
     imgCounter = 0
     sliderbackground.backgroundImage = sliderImages[2].images
+    
+    
   }
 }
 // 4. interval timer to change automatically slider right

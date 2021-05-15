@@ -1,3 +1,0 @@
-savedRecipes = [
-  {label:"labelname",url:""}
-]
