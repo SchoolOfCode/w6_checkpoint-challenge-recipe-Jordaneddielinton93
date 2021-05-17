@@ -1,0 +1,595 @@
+$darkgray : black;
+$lightergray :#3D3D3D;
+$lightgray:#525252;
+$page-width:1200px;
+
+@mixin gridborder {
+  border: whitesmoke thin solid;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5)
+}
+*{
+ padding: 0%;
+ margin: 0%;
+ text-decoration: none;
+ font-family: 'Montserrat', sans-serif;
+}
+body{
+ background-color: $lightgray;
+}
+.page-area{
+  display: flex;
+  width: $page-width;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $lightergray;
+  flex-direction: column;
+}
+.header{
+  display: flexbox;
+  width: 100%;
+  height: 60px;
+  &--nav{
+    z-index: 5;
+    display: flex;
+    position: fixed;
+    width: $page-width;
+    height: 60px;
+    width: $page-width;
+    top: 0%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $darkgray;
+    border-bottom:$lightgray solid thin ;
+    color: white;
+    &-h1{
+      display: flexbox;
+      width: 400px;
+      font-size: 2.5rem;
+      & .fa-utensils{
+        color: red;
+        &:hover{
+          transform: rotate(360deg);
+          transition: 2s;
+        }
+      }
+    }
+    &--ul{
+      display: flexbox;
+      font-size: 1rem;
+
+      & li{
+        text-decoration: underline white ;
+        margin-right:20px ;
+        display: inline;
+        & a{
+          color: white;
+        }
+      }
+    }
+  }
+}
+.reservationArea{
+  height: 60px;
+  width: $page-width ;
+  position: fixed;
+  bottom: 0;
+  background-color: $darkgray;
+  border-top: $lightgray solid thin;
+  z-index: 5;
+  & form{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    
+    & a input{
+      display: flexbox;
+      width: 200px;
+      height: 45px;
+      border: $lightgray thin dotted;
+      background-color:rgb(167, 167, 167);
+      background-color: rgb(255, 72, 72);
+      font-size: 1.5rem;
+      color: white;
+      &:hover{
+        background-color: white;
+        background-color: red;
+        font-size: 1.6rem;
+      }
+    }
+    & select{
+      display: flexbox;
+      width: 200px;
+      height: 40px;
+      font-size: 1.5rem;
+      border: $lightgray thin dotted;
+      background-color: rgb(175, 175, 175);
+      &:hover{
+        background-color: white;
+      }
+      & option{
+        height: 20px;
+      }
+    }
+  }
+}
+
+main{
+  background-color: white;
+  height: 100%;
+  .starterArea{
+    height: 95vh;
+    width: 100%;
+    & img{
+      position: absolute;
+    }
+    &--template{
+      display: flex;
+      height: 100%;
+      width: 100%;
+      background-image:url(/images/resturant1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      justify-content: center;
+      align-items: center;
+      & .fa-long-arrow-alt-left{
+        width: 10%;
+        font-size: 4.5rem;
+        color: red;
+        cursor: pointer;
+        border-bottom: white thick solid;
+        opacity: 0.5;
+        &:hover{
+          opacity: 1;
+          font-size: 5rem;
+        }
+      }
+      &--centerScreen{
+        width: 80%;
+        text-align: center;
+        font-size: 2.5rem;
+        color: white;
+        & a{
+          color: white;
+          &:hover{
+            color: $lightgray;
+          }
+          & h3{
+            background-color: $lightgray;
+            border-radius: 40px;
+            cursor: pointer;
+            &:hover{
+              background-color: white;
+            }
+          }
+        }
+      }
+      & .fa-long-arrow-alt-right{
+        width: 10%;
+        font-size: 4.5rem;
+        color: red;
+        cursor: pointer;
+        border-bottom: white thick solid;
+        opacity: 0.5;
+        text-align: right;
+        
+        &:hover{
+          opacity: 1;
+          font-size: 5rem;
+        }
+
+      }
+    }
+  }
+  .counter{
+    display: flex;
+    height: 180px;
+    width: 100%;
+    background-color: $lightergray;
+    justify-content: center;
+    &--left{
+      background:url(/images/leftburger.jpg) no-repeat;
+      background-size: cover;
+      width: 25%;
+      height: 100%;
+      
+    }
+    &--numbers{
+      display: flexbox;
+      height: 100%;
+      width: 50%;
+      border-bottom: thin $darkgray solid;
+      background-color: $lightgray;
+      &-text{
+        text-align: center;
+        background-color: white;
+        height: 15%;
+      }
+      &--container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 70%;
+        font-size: 2rem;
+        color: black;
+      }
+    }
+    &--right{
+      background:url(/images/rightburger.jpg) no-repeat;
+      background-size: cover;
+      width: 25%;
+      height: 100%;
+    }
+  }
+  .FoodArea{
+    height: 100vh;
+    width: 100%;
+    background : url(/images/woodtop.jpg)no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size: 1.3rem;
+    
+    &--box{
+      display: grid;
+      width: 90%;
+      height: 90%;
+      margin:auto;
+      background-color: rgba(155, 155, 155, 0) ;
+      border: thick solid white;
+      border-radius: 20px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 5fr 1fr 5fr;
+      grid-template-areas:
+      "box1 box2"
+      "box3 box4"
+      "box5 box4";
+      &--topleft{
+        display: flex;
+        grid-area: box1;
+        
+        justify-content: center;
+        border-radius: 20px;
+        & #apiImage{
+          border-left: white thick solid;
+          border-right: white thick solid;
+          display: flexbox;
+          object-fit: cover;
+          height: 100%;
+        }
+      }
+      &--topright{
+        display: flex;
+        grid-area: box2;
+        @include gridborder();
+        flex-direction: column;
+        &--label{
+          text-align:center;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+          width: 100%;
+          height: 20%;
+          background-color:$lightgray;
+        }
+        &--table{
+          width: 100%;
+          height: 80%;
+          @include gridborder();
+          overflow: auto;
+          & tr td:nth-child(1){
+            width: 30%;
+          }
+          & tr td:nth-child(2){
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border: thin solid red;
+            width: 70%;
+            text-align: center;
+          }
+        }
+      }
+      &--middleleft{
+        grid-area: box3;
+        @include gridborder();
+        &--searchArea{
+          display:flex;
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          
+
+          &-limit{
+            display: none;
+            
+          }
+
+          & input{
+            display: flexbox;
+            width: 90%;
+            height: 80%;
+            color: red;
+            background-color: white;
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-align: center;
+            border-radius: 20px;
+
+          }
+          & h2{
+            display: flexbox;
+            width: 10%;
+            color: $lightergray;
+            color: red;
+            font-size: 3rem;
+            text-align: right;
+            & i{
+              color: red;
+              &:hover{
+                transform: rotate(360deg);
+                transition: 2s;
+              }
+            }
+          }
+        }
+      }
+      &--bottomleft{
+        grid-area: box5;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        
+        &-saveRecipe{
+          text-align: center;
+          background-color:$lightgray;
+        }
+        &-table{
+          width: 100%;
+          height: 90%;
+          @include gridborder();
+          overflow: auto;
+
+          & tr td:nth-child(1){
+            border: thin solid red;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            width: 40%;
+          }
+          & tr td:nth-child(2){
+            border: thin solid red;
+            border: thin solid red;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            width: 60%;
+            text-align: center;
+            overflow: hidden;
+          }
+        }
+      }
+      &--bottomright{
+        display: flex;
+        flex-direction: column;
+        grid-area: box4;
+        
+        
+        & h1{
+          text-align:center;
+          width: 100%;
+          height: 10%;
+          background-color:$lightgray;
+        }
+        &-ingrediants{
+          text-align: center;
+          height: 45%;
+          width: 100%;
+          background-color: rgba(175, 175, 175,0.6);
+          overflow: auto;
+        }
+        &-ingrediantslist{
+          text-align: left;
+          height: 45%;
+          width: 100%;
+          background-color: rgba(175, 175, 175,0.6);
+          overflow: auto;
+        }
+      }
+      
+    }
+  }
+  
+  @mixin boxNumbStyles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-size: cover;
+    color: white;
+  }
+  .selectionArea{
+    display: flexbox;
+    width: 100%;
+    height: 50vh;
+    &--grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      background-image:url(/images/placeholder.png);
+      width: 100%;
+      height: 100%;
+      & .boxs{
+          display: flexbox;
+          width: 100%;
+          height: 100%;
+          background:url(/images/grid-paper.png) no-repeat;
+          background-size: cover;
+          transition: 0.8s;
+          color: black;
+          font-size: 3rem;
+          align-self:center ;
+          
+          &:hover{
+            opacity: 0;
+            transition: 0.8s;
+          }
+        }
+      &--box1{
+        @include boxNumbStyles();
+        
+        
+      }
+      &--box2{
+        @include boxNumbStyles();
+        
+      }
+      &--box3{
+        @include boxNumbStyles();
+
+      }
+    }
+  }
+  .photoArea{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: baseline;
+    background:url(/images/woodbottom.jpg)no-repeat;
+    background-size: cover;
+    background-position: center;
+    &--block{
+      display: grid;
+      border: white solid thick;
+      margin-top: 20px;
+      border-radius: 20px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 5fr 1fr;
+      grid-template-areas: 
+      "box1 box1 box1"
+      "box2 box3 box4"
+      "box5 box5 box6";
+      width: 90%;
+      height: 90%;
+      
+     
+      @mixin boxs {
+        @include gridborder();
+        &-topbottom{
+          height: 50%;
+          &:nth-child(1){
+            background-size: cover;
+            background-position: center;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+          }
+          h1{
+            text-align: center;
+            font-size: 1.5rem;
+          }
+          table{
+            width: 100%;
+            tr{
+              background-color: white;
+            }
+          }
+          & img{
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            object-fit: cover;
+            max-height: 100%;
+            min-height: 100%;
+            min-width: 100%;
+            max-width: 100%;
+          }
+        }
+      }
+      &--box1{
+        grid-area: box1;
+        font-size: 5rem;
+        text-align: center;
+        border-radius: 20px;
+        background-color: white;
+      }
+      &--box2{
+        grid-area: box2;
+        @include boxs()
+      }
+      &--box3{
+        @include boxs()
+      }
+      &--box4{
+        @include boxs()
+      }
+      &--box5{
+        grid-area: box5;
+        @include gridborder();
+        height: 100%;
+        & input{
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          border-radius: 20px;
+          font-size: 2rem;
+        }
+      }
+      &--box6{
+        grid-area: box6;
+        @include gridborder();
+        height: 100%;
+        & input{
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          border-radius: 20px;
+          background-color:#FA80AB ;
+          font-size: 2rem;
+          color: white;
+          transition: 0.5s;
+          &:hover{
+            background-color: red;
+            transition: 0.5s;
+            border: thick solid  white;
+          }
+        }
+      }
+    }
+  }
+  .bottom-nav-space{
+    height: 60px;
+    
+  }
+  .leaf{
+    position: fixed;
+    display: flex;
+    height: 100px;
+    width: 100px;
+    background: url(/images/leaf1.png)no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.5;
+    &:hover{
+      opacity: 1;
+      cursor: grab;
+    }
+    &1{
+      position: fixed;
+      top: 20px;
+      display: flex;
+      height: 100px;
+      width: 100px;
+      background: url(/images/leaf1.png)no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.5;
+      &:hover{
+        opacity: 1;
+        cursor: grab;
+      }
+    }
+  }
+}
+
